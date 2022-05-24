@@ -6,7 +6,7 @@
                 </button>      
                 <a class="navbar-brand" href="index.php">
                     <div class="logo" style="padding-left: 100px;"> 
-                        <img src="img/logo.png"  >  
+                        <img src="./Public/images/logo.png"  >  
                             </div>      
                 </a>
                 <div class="collapse navbar-collapse " id="navbarTogglerDemo03" >
