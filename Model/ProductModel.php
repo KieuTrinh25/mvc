@@ -15,9 +15,11 @@ class ProductModel extends Database {
     
         $product = $stmt->fetch();
         return new Product(
+            $product['id'],
             $product['name'],
-            $product['description'],
-            $product['price']
+            $product['price'],
+            $product['quantity'],
+            $product['image']
         );
     }
 
@@ -30,8 +32,11 @@ class ProductModel extends Database {
 
         foreach($query as $product){
             $products[] = new Product(
+                $product['id'],
                 $product['name'],
-                $product['price']
+                $product['price'],
+                $product['quantity'],
+                $product['image']
             );
         }
 
