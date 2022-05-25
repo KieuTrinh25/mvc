@@ -1,9 +1,7 @@
 body{
 	font-size: 18px;
 }
-#header{
-    background-color: rgb(247, 253, 250);
-}
+
 #header nav a.nav-link:hover {
     color: #fff;
 }
@@ -38,8 +36,7 @@ a.hover-white:hover.btn {
 .nav-item {
     margin-left: 20px;
 }
-
-
+ 
  
 .dropdown-menu a {
     color: rgb(24, 23, 15);

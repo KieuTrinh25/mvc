@@ -13,6 +13,37 @@ class HomeController {
                 case 'single':
                     $this->singlePage();
                     break;
+                    
+                case 'introduce':
+                    $this->introducePage();
+                    break;
+                case 'shop':
+                    $this->shopPage();
+                    break;
+                case 'list':
+                    $this->listPage();
+                    break;
+                case 'knowledge':
+                    $this->knowledgePage();
+                    break;
+                case 'contact':
+                    $this->contactPage();
+                    break;
+                case 'search':
+                    $this->searchPage();
+                    break;
+                case 'login':
+                    $this->loginPage();
+                    break;
+                case 'cart':
+                    $this->cartPage();
+                    break;
+                case 'order':
+                    $this->orderPage();
+                    break;
+             
+                    
+
             }
         }
     }
@@ -21,11 +52,37 @@ class HomeController {
         require_once './Model/ProductModel.php';
         $productModel = new ProductModel();
         $productList = $productModel->all();
-
         require_once './View/home.php';
     }
 
     private function singlePage() {
         require_once './View/single.php';
+    }
+    private function introducePage() {
+        require_once './View/introduce.php';
+    }
+    private function shopPage() {
+        require_once './View/shop.php';
+    }
+    private function listPage() {
+        require_once './View/list.php';
+    }
+    private function knowledgePage() {
+        require_once './View/knowledge.php';
+    }
+    private function contactPage() {
+        require_once './View/contact.php';
+    }
+    private function searchPage() {
+        require_once './View/search.php';
+    }
+    private function loginPage() {
+        require_once './View/login.php';
+    }
+    private function cartPage() {
+        require_once './View/cart.php';
+    }
+    private function orderPage() {
+        require_once './View/order.php';
     }
 }

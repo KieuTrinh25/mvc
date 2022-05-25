@@ -93,29 +93,28 @@
             </div>
             <h5 style="margin:30px 0px 30px 30px">SẢN PHẨM NỔI BẬT </h5>
             <div class="main" style="text-align: center;">
-          
-            <div class="box">
-                    <div class="row " >
-                        <!--Vùng dữ liệu-->
-                        <?php 
-                            foreach($productList as $product) { ?>
-                                <div class="col-xs-2 col-2 col-lg-2 mb-4" >
-                                    <a href="single.php?id=<?php echo $product->id; ?>"> 
-                                        <div class="card"  >
-                                            <img src="<?php echo $product->image;?>" width="100%" height="200px">
-                                            <div class="card-body">
-                                                <p style="color: black" ><?php echo $product->name; ?></p>
-                                                <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                <div class="box">
+                        <div class="row " >
+                            <!--Vùng dữ liệu-->
+                            <?php 
+                                foreach($productList as $product) { ?>
+                                    <div class="col-xs-2 col-2 col-lg-2 mb-4" >
+                                        <a href="single.php?id=<?php echo $product->id; ?>"> 
+                                            <div class="card"  >
+                                                <img src="<?php echo $product->image;?>" width="100%" height="200px">
+                                                <div class="card-body">
+                                                    <p style="color: black" ><?php echo $product->name; ?></p>
+                                                    <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
+                                                    <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>  
-                                                    
-                        <?php } ?>
-                    </div>
-                    <button type="button" class="btn btn-success" style="margin-left: 50px; ">Xem thêm</button>  
-            </div>
+                                        </a>
+                                    </div>  
+                                                        
+                            <?php } ?>
+                        </div>
+                        <button type="button" class="btn btn-success" style="margin-left: 50px; ">Xem thêm</button>  
+                </div>
             <div class="clear"></div>
             
             <h5 style="margin:30px 0px 30px 30px">Kết nối nhà vườn</h5>

@@ -3,13 +3,13 @@
                 <div class="row     pt-5"  >
                     <div class=" col-md-3 "  style="margin-left:60px">
                                        
-                        <img src="img/logoVuong.png" style="height: 125px; width : 50% ">    
+                        <img src="./Public/images/footer.png" style="height: 125px; width : 50% ">    
                         <p>176 Trần Phú, phường Phước Vĩnh,<br>
                              Thành phố Huế, Thừa Thiên Huế <br>
 
-                        <img src="img/telephone-call.png"> 079 254 5710<br>
+                        <img src="./Public/images/telephone-call.png"> 079 254 5710<br>
 
-                        <img src="img/gm.png"> trinh0792545710@gmail.com <br>
+                        <img src="./Public/images/gm.png"> trinh0792545710@gmail.com <br>
                             
 
                             

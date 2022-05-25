@@ -25,7 +25,7 @@
 	</style>
     
 <body>
-	<a class="" href="index.php" ><img src="img/logoform.png" width="150px"></a>
+	<a class="" href="index.php" ><img src="./logoform.png" width="150px"></a>
 	 
 	<hr>
     <div class="container" id="container">
