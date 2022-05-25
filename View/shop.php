@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Trade</title>
@@ -18,6 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./Public/js/owl.carousel.js"></script>
     <script src="./Public/js/web.js"></script>
+</head>
 <body onload="autoloadimg ()">
 <?php include_once './View/inc/header.php'?>
    <!--end header-->
@@ -31,33 +33,38 @@
                             <thead style="background-color:  rgb(111, 221, 144);">
                             <tr>
                                 
-                                <th scope="col" style="height: 60px; color: white; "><h4-6>BÀI VIẾT MỚI</h6></th>
+                                <th scope="col" style="height: 60px; color: white; "><h4>DANH MỤC SẢN PHẨM</h4></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 
-                                <td style="height: 50px;">Nấm vân chi có tác dụng gì ?</td>
+                                <td style="height: 50px;">Rau củ</td>
                                 
                             </tr>
                             <tr>
                                 
-                                <td style="height: 50px;">Chả cốm ăn với gì ngon</td>
+                                <td style="height: 50px;">Hải sản</td>
                                 
                             </tr>
                             <tr>
                                 
-                                <td style="height: 50px;">Cốm tươi làm món gì ngon ?</td>
+                                <td style="height: 50px;">Trái cây</td>
                             
                             </tr>
                             <tr>
                                 
-                                <td style="height: 50px;">Cách làm măng tây xào tỏi</td>
+                                <td style="height: 50px;">Thịt trứng</td>
                             
                             </tr>
                             <tr>
                                 
-                                <td style="height: 50px;">Súp lơ xanh nấu món gì ngon ?</td>
+                                <td style="height: 50px;">Đồ uống</td>
+                            
+                            </tr>
+                            <tr>
+                                
+                                <td style="height: 50px;">Đồ khô</td>
                             
                             </tr>
                             </tbody>
@@ -68,21 +75,21 @@
                     <div class="row " style="margin-left: 20px;">
                         <!--Vùng dữ liệu-->
                         <?php 
-                            foreach($productList as $product) { ?>
-                                <div class="col-xs-2 col-3 col-lg-3 mb-4" >
-                                    <a href="single.php?id=<?php echo $product->id; ?>"> 
-                                        <div class="card"  >
-                                            <img src="<?php echo $product->image;?>" width="100%" height="200px">
-                                            <div class="card-body">
-                                                <p style="color: black" ><?php echo $product->name; ?></p>
-                                                <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                foreach($productList as $product) { ?>
+                                    <div class="col-xs-2 col-3 col-lg-3 mb-4" >
+                                        <a href="single.php?id=<?php echo $product->id; ?>"> 
+                                            <div class="card"  >
+                                                <img src="<?php echo $product->image;?>" width="100%" height="200px">
+                                                <div class="card-body">
+                                                    <p style="color: black" ><?php echo $product->name; ?></p>
+                                                    <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
+                                                    <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>  
-                                                    
-                        <?php } ?>
+                                        </a>
+                                    </div>  
+                                                        
+                            <?php } ?>
                     </div>
                 </div>    
             </div>
@@ -104,7 +111,7 @@
             if ( i > 3 ){
                 i = 1;
             }
-            vimg.src = "./public/images/" + "banner" + i +".jpg" ;
+            vimg.src = "img/" + "banner" + i +".jpg" ;
         }, 2000 )
     }
     $(document).ready(function() {

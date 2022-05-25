@@ -25,7 +25,7 @@
 	</style>
     
 <body>
-	<a class="" href="index.php" ><img src="./logoform.png" width="150px"></a>
+	<a class="" href="<?php echo url('home'); ?>" ><img src="./Public/images/contact.png" width="150px"></a>
 	 
 	<hr>
     <div class="container" id="container">
@@ -73,7 +73,7 @@
             </div>        
             <div class="register login">
                 <p><span>Quên <a href="#" style="color: blue;">mật khẩu?</a></span></p>
-                <button type="submit">ĐĂNG NHẬP</button>
+                <button type="submit" >ĐĂNG NHẬP</button>
             </div>
             </form>
         </div>    

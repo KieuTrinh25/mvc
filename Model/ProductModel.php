@@ -42,36 +42,5 @@ class ProductModel extends Database {
 
         return $products;
     }
-    public function create_order(){
-        if(isset($_SESSION['cart'])){
-            $cart = $_SESSION['cart'];
-        }else{
-            $cart = array();  
-        }
     
-        $productExists = false;
-    
-        foreach($cart as $key => $value){
-            if($product == $value['productId']){
-                $value['quantity'] = $value['quantity'] + $quantity;
-                $cart[$key] = $value;
-                $productExists = true;
-                break;
-            }
-        }
-    
-        if(!$productExists) {
-            $product = array(
-                'productId' => $productId,
-                'name' => $name,
-                'image' => $image,
-                'price' => $price,
-                'quantity' => $quantity,
-            );
-        
-            $cart[] = $product;
-        }
-       
-        $_SESSION['cart'] = $cart; 
-    }
 }

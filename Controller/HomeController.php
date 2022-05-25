@@ -56,12 +56,18 @@ class HomeController {
     }
 
     private function singlePage() {
+        require_once './Model/ProductModel.php';
+        $productModel = new ProductModel();
+        $productList = $productModel->all();
         require_once './View/single.php';
     }
     private function introducePage() {
         require_once './View/introduce.php';
     }
     private function shopPage() {
+        require_once './Model/ProductModel.php';
+        $productModel = new ProductModel();
+        $productList = $productModel->all();
         require_once './View/shop.php';
     }
     private function listPage() {
