@@ -45,7 +45,7 @@
                 <label for="password"></label>
                 <input type="email" placeholder="Nhập email" name="mail" id="mail">
                 <label for="password"></label>
-                <input type="password" placeholder="Nhập nật khẩu" name="password" id="password">
+                <input type="password" placeholder="Nhập mật khẩu" name="password" id="password">
                 <label for="password-repeat"></label>
                 <input type="password" placeholder="Nhập lại mật khẩu" name="password-repeat" id="password-repeat">
                 <button type="submit" class="submit">Đăng ký</button>

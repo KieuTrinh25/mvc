@@ -24,17 +24,11 @@
 <body onload="autoloadimg ()">
 <?php include_once './View/inc/header.php'?>
 
-<?php
-    if(!isset($_GET['id'])) die();
-
-    $id = $_GET['id'];
-    $row = getProduct($id);
-?>
 <div id="content" style="margin-top:50px">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mt-2">
-                <img src="<?php echo $product->image;?>" width="80%"  >
+                <img src="<?php echo $product->image; ?>" width="80%"  >
                 </div>
                 <div class="col-md-6"> 
                     <div class=" row">
@@ -42,14 +36,14 @@
                             <a>TRANG CHỦ / TRÁI CÂY</a>
                         </div>
                         <div class="col-md-12">
-                            <h3><?php echo $row['name']; ?> </h3>
+                            <h3><?php echo $product->name; ?> </h3>
                         </div>
                         <div class="col-md-12">
                             <hr></hr>
                         </div>
                         <div class="col-md-12">
                             <div class="price">
-                                <h3><?php echo $row['price']; ?>đ</h3>
+                                <h3><?php echo $product->price; ?>đ</h3>
                             </div>
                         </div>
                         <div class="col-md-12 mt-3">

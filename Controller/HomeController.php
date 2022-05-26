@@ -57,9 +57,11 @@ class HomeController {
 
     private function singlePage() {
         require_once './Model/ProductModel.php';
-        $productModel = new ProductModel();
-        $productList = $productModel->all();
-        require_once './View/single.php';
+        if(isset($_GET['id'])){
+            $product = (new ProductModel())->find($_GET['id']);
+            require_once './View/single.php';
+        }
+       
     }
     private function introducePage() {
         require_once './View/introduce.php';
@@ -86,9 +88,23 @@ class HomeController {
         require_once './View/login.php';
     }
     private function cartPage() {
+        require_once './Model/ProductModel.php';
+        require_once './Helpers/functions.php';
+        if(isset($_GET['id'])){
+            //order 
+            $productModel = new ProductModel();
+            $product = $productModel->find($_GET['id']);
+            create_order($product->id, $product->name, $product->image, $product->price, 1);
+        }
+
+        $productList = $_SESSION['cart'];
+         
         require_once './View/cart.php';
     }
     private function orderPage() {
+        require_once './Model/ProductModel.php';
+        $productModel = new ProductModel();
+        $productList = $productModel->all();
         require_once './View/order.php';
     }
 }

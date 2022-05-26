@@ -23,11 +23,7 @@
 </head>
 <body onload="autoloadimg ()">
 <?php include_once './View/inc/header.php'?>
- 
-<?php
 
-$products = getOrdersBySession();
-?>
     <div class="container-fluid">
         <div class="row mt-5">
 
@@ -41,20 +37,20 @@ $products = getOrdersBySession();
                             <th scope="col">Giá</th>
                             <th scope="col">Số lượng</th>
                             <th scope="col">Tổng</th>
-                            <th scope="col">Xóa </th>
+                             
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($products as $product) { ?>
+                        <?php foreach ($productList as $product) { ?>
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <img style="width: 50px; height: 50px;" src="<?php echo $product->image;?>" alt="">
+                                <img style="width: 50px; height: 50px;" src="<?php echo $product['image']; ?>" alt="">
                             </td>
-                            <td><?php echo $product->name; ?></td>
-                            <td><?php echo $product->price; ?></td>
-                            <td><?php echo $product->quantity; ?></td>
-                            <td><?php echo calc_product_price($product); ?></td>
+                            <td><?php echo $product['name']; ?></td>
+                            <td><?php echo $product['price']; ?></td>
+                            <td><?php echo $product['quantity']; ?></td>
+                            <td><?php echo $product['price']; ?></td>
                         </tr>
                         <?php    } ?>
                     </tbody>
@@ -87,7 +83,7 @@ $products = getOrdersBySession();
             if ( i > 3 ){
                 i = 1;
             }
-            vimg.src = "img/" + "banner" + i +".jpg" ;
+            vimg.src = "./Public/images/" + "banner" + i +".jpg" ;
         }, 2000 )
     }
     $(document).ready(function() {

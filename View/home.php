@@ -99,13 +99,13 @@
                             <?php 
                                 foreach($productList as $product) { ?>
                                     <div class="col-xs-2 col-2 col-lg-2 mb-4" >
-                                        <a href="single.php?id=<?php echo $product->id; ?>"> 
+                                        <a href="index.php?controller=homeController&page=single&id=<?php echo $product->id; ?>"> 
                                             <div class="card"  >
                                                 <img src="<?php echo $product->image;?>" width="100%" height="200px">
                                                 <div class="card-body">
                                                     <p style="color: black" ><?php echo $product->name; ?></p>
                                                     <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                    <a  class="btn btn-success" href="<?php echo url('cart'); ?>id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                    <a  class="btn btn-success" href="<?php echo url('cart'); ?>&id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
                                                 </div>
                                             </div>
                                         </a>

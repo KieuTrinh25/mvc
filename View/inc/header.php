@@ -56,8 +56,8 @@
                         <div class="btn-cart1" onclick="show()">
                             <!-- <img id="icons-cart" src="img/cart.png" style="height: 40px;width: 40px;"> -->
                             <a class="btn hover-white" href="<?php echo url('login'); ?>" role="button"><i class="fa fa-user" aria-hidden="true"></i></a>
-                            <a class="btn hover-white " href="#" role="button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-                            <a class="btn hover-white" href="cart.php" role="button"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                            <a class="btn hover-white " href="<?php echo url('home'); ?>" role="button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <a class="btn hover-white" href="<?php echo url('cart'); ?>" role="button"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

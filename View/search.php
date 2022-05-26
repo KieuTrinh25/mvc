@@ -24,11 +24,7 @@
     <script src="./js/owl.carousel.js"></script>
     <script src="./js/web.js"></script>
 </head>
-    <?php
-    $search = $_GET['q'] ?? '';
-    $products = searchProduct($search);
     
-    ?>
     
     <div class="box mt-3 ">
         <div class="row " >
