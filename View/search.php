@@ -28,7 +28,7 @@
     
     <div class="box mt-3 ">
         <div class="row " >
-            <!--Vùng dữ liệu-->
+            <!--Vùng dữ liệu--> 
             <?php 
                 foreach($products as $row) { ?>
                     <div class="col-xs-2 col-2 col-lg-2 mb-4" >
