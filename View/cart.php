@@ -41,7 +41,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $total_all = 0;?>
                         <?php foreach ($productList as $product) { ?>
+                        
                         <tr>
                             <th scope="row">1</th>
                             <td>
@@ -50,9 +52,11 @@
                             <td><?php echo $product['name']; ?></td>
                             <td><?php echo $product['price']; ?></td>
                             <td><?php echo $product['quantity']; ?></td>
-                            <td><?php echo $product['price']; ?></td>
+                            <td><?php echo calc_product_price($product); ?></td>
                         </tr>
-                        <?php    } ?>
+                        <?php   
+                        $total_all += $product['price']*$product['quantity'];
+                        } ?>
                     </tbody>
                 </table>
             </div>
@@ -61,7 +65,7 @@
                     <thead>
                     
                         <tr>
-                        <td><h6>TỔNG SỐ LƯỢNG</h6> </td>
+                        <td><h6>TỔNG SỐ LƯỢNG </h6> <?=$total_all?></td>
                              
                         </tr>
                     </thead>

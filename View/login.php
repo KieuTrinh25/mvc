@@ -25,7 +25,7 @@
 	</style>
     
 <body>
-	<a class="" href="<?php echo url('home'); ?>" ><img src="./Public/images/contact.png" width="150px"></a>
+	<a class="" href="<?php echo url_pattern('homeController', 'home'); ?>" ><img src="./Public/images/contact.png" width="150px"></a>
 	 
 	<hr>
     <div class="container" id="container">
