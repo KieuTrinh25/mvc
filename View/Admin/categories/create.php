@@ -58,14 +58,14 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Category name:</label>
                             <input name="name" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter name">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Category description:</label>
                             <input name="description" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter description">
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" >Submit</button>
                     </form>
                 </div>
                 <!-- /.container-fluid -->
@@ -77,7 +77,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; My Website 2022</span>
                     </div>
                 </div>
             </footer>

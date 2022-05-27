@@ -90,9 +90,7 @@ class HomeController {
             $product = $productModel->find($_GET['id']);
             create_order($product->id, $product->name, $product->image, $product->price, 1);
         }
-
         $productList = $_SESSION['cart'];
-         
         require_once './View/cart.php';
     }
     private function orderPage() {

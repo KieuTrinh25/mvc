@@ -47,15 +47,15 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Admin Panel</h1>
-                        <a href="<?php echo admin_url_pattern('categoryController', 'create'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i>Add Category</a>
+                        <a href="<?php echo admin_url_pattern('productController', 'create'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i>Add Product</a>
                     </div>
 
                     <!-- Content Row -->
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">List Categories</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">List Products</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -64,7 +64,9 @@
                                         <tr>
                                             <th>STT</th>
                                             <th>Name</th>
-                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Image</th>
                                             <th>#</th>
                                             <th>#</th>
                                         </tr>
@@ -73,19 +75,23 @@
                                         <tr>
                                             <th>STT</th>
                                             <th>Name</th>
-                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Image</th>
                                             <th>#</th>
                                             <th>#</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <?php foreach($categoryList as $category) { ?>
+                                    <?php foreach($productList as $product) { ?>
                                         <tr>
                                             <td><?php echo increment($i); ?></td>
-                                            <td><?php echo $category->name; ?></td>
-                                            <td><?php echo $category->description; ?></td>
-                                            <td><a href="<?php echo admin_url_pattern('categoryController', 'edit', $category->id); ?>">Edit</a></td>
-                                            <td><a href="<?php echo admin_url_pattern('categoryController', 'delete', $category->id); ?>">Delete</a></td>
+                                            <td><?php echo $product->name; ?></td>
+                                            <td><?php echo $product->price; ?></td>
+                                            <td><?php echo $product->quantity; ?></td>
+                                            <td><img src="<?php echo $product->image; ?>"  width="100px" height="100px"></td>
+                                            <td><a href="<?php echo admin_url_pattern('productController', 'edit', $product->id); ?>">Edit</a></td>
+                                            <td><a href="<?php echo admin_url_pattern('productController', 'delete', $product->id); ?>">Delete</a></td>
                                         </tr>
                                     <?php } ?>
                                     </tbody>

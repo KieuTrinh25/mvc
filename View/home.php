@@ -105,7 +105,7 @@
                                                 <div class="card-body">
                                                     <p style="color: black" ><?php echo $product->name; ?></p>
                                                     <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                    <a  class="btn btn-success" href="<?php echo url_pattern('homeController', 'single', $product->id); ?>">Thêm vào giỏ </a>
+                                                    <a  class="btn btn-success" href="<?php echo url_pattern('homeController', 'cart', $product->id); ?>">Thêm vào giỏ </a>
                                                 </div>
                                             </div>
                                         </a>
