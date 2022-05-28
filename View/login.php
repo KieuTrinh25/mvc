@@ -30,7 +30,7 @@
 	<hr>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="" method="POST">
+            <form action="index.php" method="POST">
                 <input type="hidden" name="controller" value="loginController">
                 <h1>ĐĂNG KÝ</h1>
                 <div class="social-container">

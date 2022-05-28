@@ -1,5 +1,7 @@
 <?php
-class LoginController {
+include_once './Controller/Auth.php';
+
+class LoginController { 
     public function __construct() {
 
     }
@@ -10,7 +12,8 @@ class LoginController {
         }
 
         if(isset($_POST['name']) && isset($_POST['password'])){
-            
+            $auth = new Auth();
+            $auth->login($_POST['name'], $_POST['password']);
         }
     }
 }

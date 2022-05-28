@@ -1,7 +1,15 @@
 <?php
+include_once './Controller/Auth.php';
+
 class Controller {
     public function __construct() {
-
+        $auth = new Auth();
+        $user = Auth::user();
+        if($user){
+            if($user['role'] != 'admin') redirect(url_pattern('homeController', 'home'));
+        }else{
+            redirect(url_pattern('loginController', 'login'));
+        }
     }
 
     public function invoke() {
