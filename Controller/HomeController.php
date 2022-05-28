@@ -1,11 +1,14 @@
 <?php
 require_once './Model/ProductModel.php';
+require_once './Controller/Auth.php';
 
 class HomeController {
     private $productModel;
+    public $auth;
 
     public function __construct() {
         $this->productModel = new ProductModel();
+        $this->auth = new Auth();
     }
 
     public function invoke() {
@@ -90,7 +93,12 @@ class HomeController {
             $product = $productModel->find($_GET['id']);
             create_order($product->id, $product->name, $product->image, $product->price, 1);
         }
-        $productList = $_SESSION['cart'];
+
+        if(isset($_SESSION['cart'])) 
+            $productList = $_SESSION['cart'];
+        else 
+            $productList = array();
+            
         require_once './View/cart.php';
     }
     private function orderPage() {

@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                         <?php $total_all = 0;?>
-                        <?php foreach ($productList as $product) { ?>
+                        <?php if(count($productList) > 0 ) foreach ($productList as $product) { ?>
                         
                         <tr>
                             <th scope="row">1</th>
@@ -50,7 +50,7 @@
                                 <img style="width: 50px; height: 50px;" src="<?php echo $product['image']; ?>" alt="">
                             </td>
                             <td><?php echo $product['name']; ?></td>
-                            <td><?php echo $product['price']; ?></td>
+                            <td><?php echo number_format($product['price']); ?></td>
                             <td><?php echo $product['quantity']; ?></td>
                             <td><?php echo calc_product_price($product); ?></td>
                         </tr>
@@ -72,7 +72,7 @@
                     </thead>
                     <tbody>
                            <td  >Tổng</td>
-                            <td> <?=$total_all?></td>
+                            <td> <?= number_format($total_all) ?></td>
                         </tr>
                     </tbody>
                 </table>

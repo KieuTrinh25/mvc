@@ -55,8 +55,11 @@
 
                         <div class="btn-cart1" onclick="show()">
                             <!-- <img id="icons-cart" src="img/cart.png" style="height: 40px;width: 40px;"> -->
-                            <a class="btn hover-white" href="<?php echo url_pattern('homeController', 'login'); ?>" role="button"><i class="fa fa-user" aria-hidden="true"></i></a>
-                            <a class="btn hover-white " href="<?php echo url_pattern('homeController', 'home'); ?>" role="button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <?php if($this->auth->user()) { ?>
+                            <a class="btn hover-white " href="<?php echo url_pattern('authController', 'logout'); ?>" role="button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <?php } else { ?>
+                            <a class="btn hover-white" href="<?php echo url_pattern('authController', 'login'); ?>" role="button"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <?php } ?>
                             <a class="btn hover-white" href="<?php echo url_pattern('homeController', 'cart'); ?>" role="button"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
                         </div>
                     </div>

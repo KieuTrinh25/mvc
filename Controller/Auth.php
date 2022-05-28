@@ -10,7 +10,9 @@ class Auth extends Database{
     }
 
     public function user(){
-        return $_SESSION['user'];
+        if(isset($_SESSION['user']))
+            return $_SESSION['user'];
+        return NULL;
     }
 
     public function login($name, $password){

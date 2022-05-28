@@ -31,7 +31,8 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="index.php" method="POST">
-                <input type="hidden" name="controller" value="loginController">
+                <input type="hidden" name="controller" value="authController">
+                <input type="hidden" name="page" value="register">
                 <h1>ĐĂNG KÝ</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -54,7 +55,8 @@
         </div>
         <div class="form-container sign-in-container">
             <form method="POST" action="index.php">
-                <input type="hidden" name="controller" value="loginController">
+                <input type="hidden" name="controller" value="authController">
+                <input type="hidden" name="page" value="login">
                 <h1>ĐĂNG NHẬP</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
