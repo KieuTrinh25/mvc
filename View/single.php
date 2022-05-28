@@ -63,7 +63,7 @@
                                 
                             </div>
                             <div class="col-md-8 mt-3">
-                                <button type="button" class="btn btn-outline-dark ">THÊM VÀO GIỎ HÀNG</button>
+                                <button type="button" class="btn btn-outline-success " >THÊM VÀO GIỎ HÀNG</button>
                             </div>
                         </div>
                     </div>               
@@ -188,7 +188,7 @@
             if ( i > 3 ){
                 i = 1;
             }
-            vimg.src = "img/" + "banner" + i +".jpg" ;
+            vimg.src = "./Public/images/" + "banner" + i +".jpg" ;
         }, 2000 )
     }
     $(document).ready(function() {

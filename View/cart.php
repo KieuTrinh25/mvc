@@ -41,32 +41,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($productList as $product) { ?>
+                        <?php $total_all = 0;?>
+                        <?php if(count($productList) > 0 ) foreach ($productList as $product) { ?>
+                        
                         <tr>
                             <th scope="row">1</th>
                             <td>
                                 <img style="width: 50px; height: 50px;" src="<?php echo $product['image']; ?>" alt="">
                             </td>
                             <td><?php echo $product['name']; ?></td>
-                            <td><?php echo $product['price']; ?></td>
+                            <td><?php echo number_format($product['price']); ?></td>
                             <td><?php echo $product['quantity']; ?></td>
-                            <td><?php echo $product['price']; ?></td>
+                            <td><?php echo calc_product_price($product); ?></td>
                         </tr>
-                        <?php    } ?>
+                        
+                        <?php   
+                        $total_all += $product['price']*$product['quantity'];
+                        } ?>
                     </tbody>
+
                 </table>
+                <button type="button" class="btn btn-outline-success " ><i class="fa fa-arrow-left" aria-hidden="true"></i> <a href="<?php echo url_pattern('homeController', 'home'); ?>" style="text-decoration: none; color:black">TIẾP TỤC XEM SẢN PHẨM</a></button>
             </div>
             <div class="col-md-4">
-            <table class="table" border="1">
+                <table class="table" border="2">
                     <thead>
-                    
                         <tr>
-                        <td><h6>TỔNG SỐ LƯỢNG</h6> </td>
-                             
+                            <th> TỔNG HÓA ĐƠN</th>
                         </tr>
                     </thead>
-                    
+                    <tbody>
+                           <td  >Tổng</td>
+                            <td> <?= number_format($total_all) ?></td>
+                        </tr>
+                    </tbody>
                 </table>
+                <button type="button" class="btn btn-danger" style="width: 480px;">TIẾN HÀNH THANH TOÁN</button>
+                 
+                
+                
+                 
             </div>
         </div>
     </div>

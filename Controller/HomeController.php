@@ -1,75 +1,74 @@
 <?php
-class HomeController {
-    public function __construct() {
+require_once './Model/ProductModel.php';
+require_once './Controller/Auth.php';
 
+class HomeController {
+    private $productModel;
+    public $auth;
+
+    public function __construct() {
+        $this->productModel = new ProductModel();
+        $this->auth = new Auth();
     }
 
     public function invoke() {
-        if(isset($_GET['page'])){
-            switch($_GET['page']){
-                case 'home':
-                    $this->homePage();
-                    break;
-                case 'single':
-                    $this->singlePage();
-                    break;
-                    
-                case 'introduce':
-                    $this->introducePage();
-                    break;
-                case 'shop':
-                    $this->shopPage();
-                    break;
-                case 'list':
-                    $this->listPage();
-                    break;
-                case 'knowledge':
-                    $this->knowledgePage();
-                    break;
-                case 'contact':
-                    $this->contactPage();
-                    break;
-                case 'search':
-                    $this->searchPage();
-                    break;
-                case 'login':
-                    $this->loginPage();
-                    break;
-                case 'cart':
-                    $this->cartPage();
-                    break;
-                case 'order':
-                    $this->orderPage();
-                    break;
-             
-                    
+        if(!isset($_GET['page'])) die();
 
-            }
+        switch($_GET['page']){
+            case 'home':
+                $this->homePage();
+                break;
+            case 'single':
+                $this->singlePage();
+                break;
+                
+            case 'introduce':
+                $this->introducePage();
+                break;
+            case 'shop':
+                $this->shopPage();
+                break;
+            case 'list':
+                $this->listPage();
+                break;
+            case 'knowledge':
+                $this->knowledgePage();
+                break;
+            case 'contact':
+                $this->contactPage();
+                break;
+            case 'search':
+                $this->searchPage();
+                break;
+            case 'login':
+                $this->loginPage();
+                break;
+            case 'cart':
+                $this->cartPage();
+                break;
+            case 'order':
+                $this->orderPage();
+                break;
         }
     }
 
     private function homePage() {
-        require_once './Model/ProductModel.php';
-        $productModel = new ProductModel();
-        $productList = $productModel->all();
+        $productList = $this->productModel->all();
         require_once './View/home.php';
     }
 
     private function singlePage() {
-        require_once './Model/ProductModel.php';
-        if(isset($_GET['id'])){
-            $product = (new ProductModel())->find($_GET['id']);
-            require_once './View/single.php';
-        }
+        if(!isset($_GET['id'])) die();
+
+        $product = $this->productModel->find($_GET['id']);
+        require_once './View/single.php';
        
     }
     private function introducePage() {
         require_once './View/introduce.php';
     }
     private function shopPage() {
-        require_once './Model/ProductModel.php';
-        $productModel = new ProductModel();
-        $productList = $productModel->all();
+        $productList = $this->productModel->all();
         require_once './View/shop.php';
     }
     private function listPage() {
@@ -88,8 +87,6 @@ class HomeController {
         require_once './View/login.php';
     }
     private function cartPage() {
-        require_once './Model/ProductModel.php';
-        require_once './Helpers/functions.php';
         if(isset($_GET['id'])){
             //order 
             $productModel = new ProductModel();
@@ -97,8 +94,11 @@ class HomeController {
             create_order($product->id, $product->name, $product->image, $product->price, 1);
         }
 
-        $productList = $_SESSION['cart'];
-         
+        if(isset($_SESSION['cart'])) 
+            $productList = $_SESSION['cart'];
+        else 
+            $productList = array();
+            
         require_once './View/cart.php';
     }
     private function orderPage() {

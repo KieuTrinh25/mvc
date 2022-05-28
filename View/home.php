@@ -32,7 +32,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_1.png"  class="over ">  
                         <div class="overplay">
-                            <img src="./public/images/index_cate_1_hover.png"   > 
+                            <img src="./Public/images/index_cate_1_hover.png"   > 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Rau củ</a>
@@ -41,7 +41,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_2.png" class="over " > <br> 
                         <div class="overplay">
-                            <img src="./public/images/index_cate_2_hover.png" > <br> 
+                            <img src="./Public/images/index_cate_2_hover.png" > <br> 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Hải sản </a>
@@ -50,7 +50,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_3.png"  class="over ">  
                         <div class="overplay">
-                            <img src="./public/images/index_cate_3_hover.png"   > 
+                            <img src="./Public/images/index_cate_3_hover.png"   > 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Trứng thịt </a>
@@ -59,7 +59,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_4.png"  class="over ">  
                         <div class="overplay">
-                            <img src="./public/images/index_cate_4_hover.png"   > 
+                            <img src="./Public/images/index_cate_4_hover.png"   > 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Trái cây </a>
@@ -68,7 +68,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_5.png"  class="over ">  
                         <div class="overplay">
-                            <img src="./public/images/index_cate_5_hover.png"   > 
+                            <img src="./Public/images/index_cate_5_hover.png"   > 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Đồ khô </a>
@@ -77,7 +77,7 @@
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_6.png"  class="over ">  
                         <div class="overplay">
-                            <img src="./public/images/index_cate_6_hover.png"   > 
+                            <img src="./Public/images/index_cate_6_hover.png"   > 
                         </div>
                     </div>
                     <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Đồ uống </a>
@@ -86,10 +86,10 @@
             <div class="clear"></div>  
             <h5 style="margin:30px 0px 30px 30px">CHƯƠNG TRÌNH KHUYẾN MÃI</h5>
             <div class="medium">
-                <img src="./public/images/index_promotion_1_large.png">
-                <img src="./public/images/index_promotion_2_large.jpg">
-                <img src="./public/images/index_promotion_3_large.jpg">
-                <img src="./public/images/index_promotion_4_large.png">
+                <img src="./Public/images/index_promotion_1_large.png">
+                <img src="./Public/images/index_promotion_2_large.jpg">
+                <img src="./Public/images/index_promotion_3_large.jpg">
+                <img src="./Public/images/index_promotion_4_large.png">
             </div>
             <h5 style="margin:30px 0px 30px 30px">SẢN PHẨM NỔI BẬT </h5>
             <div class="main" style="text-align: center;">
@@ -99,13 +99,13 @@
                             <?php 
                                 foreach($productList as $product) { ?>
                                     <div class="col-xs-2 col-2 col-lg-2 mb-4" >
-                                        <a href="index.php?controller=homeController&page=single&id=<?php echo $product->id; ?>"> 
+                                        <a href="<?php echo url_pattern('homeController', 'single', $product->id); ?>"> 
                                             <div class="card"  >
                                                 <img src="<?php echo $product->image;?>" width="100%" height="200px">
                                                 <div class="card-body">
                                                     <p style="color: black" ><?php echo $product->name; ?></p>
                                                     <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                    <a  class="btn btn-success" href="<?php echo url('cart'); ?>&id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                    <a  class="btn btn-success" href="<?php echo url_pattern('homeController', 'cart', $product->id); ?>">Thêm vào giỏ </a>
                                                 </div>
                                             </div>
                                         </a>

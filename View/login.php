@@ -25,13 +25,14 @@
 	</style>
     
 <body>
-	<a class="" href="<?php echo url('home'); ?>" ><img src="./Public/images/contact.png" width="150px"></a>
+	<a class="" href="<?php echo url_pattern('homeController', 'home'); ?>" ><img src="./Public/images/contact.png" width="150px"></a>
 	 
 	<hr>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="" method="POST">
-                <input type="hidden" name="controller" value="loginController">
+            <form action="index.php" method="POST">
+                <input type="hidden" name="controller" value="authController">
+                <input type="hidden" name="page" value="register">
                 <h1>ĐĂNG KÝ</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -54,7 +55,8 @@
         </div>
         <div class="form-container sign-in-container">
             <form method="POST" action="index.php">
-                <input type="hidden" name="controller" value="loginController">
+                <input type="hidden" name="controller" value="authController">
+                <input type="hidden" name="page" value="login">
                 <h1>ĐĂNG NHẬP</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>

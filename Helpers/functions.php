@@ -1,6 +1,8 @@
 <?php
-function url($page) {
-    return 'index.php?controller=homeController&page=' . $page;
+function url_pattern($controller, $page, $id = NULL){
+    if($id == NULL)  
+        return sprintf("index.php?controller=%s&page=%s", $controller, $page); 
+    return sprintf("index.php?controller=%s&page=%s&id=%s", $controller, $page, $id); 
 }
 
 function create_order($productId, $name, $image, $price, $quantity) {
@@ -34,4 +36,27 @@ function create_order($productId, $name, $image, $price, $quantity) {
     }
    
     $_SESSION['cart'] = $cart;
+}
+function calc_product_price($product) {
+    $sum = $product['quantity'] * $product['price'];
+    return number_format($sum);
+}
+
+/**
+ * Admin
+ */
+function increment(&$i = 1) {
+    $i++;
+    return $i;
+}
+
+function admin_url_pattern($controller, $page, $id = NULL){
+    if($id == NULL)  
+        return sprintf("admin.php?controller=%s&page=%s", $controller, $page); 
+    return sprintf("admin.php?controller=%s&page=%s&id=%s", $controller, $page, $id); 
+}
+
+function redirect($url) {
+    header("Location: $url");
+    die();
 }
