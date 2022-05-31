@@ -1,10 +1,11 @@
 <?php
-require_once './Model/CategoryModel.php';
-class CategoryController {
-    private $categoryModel;
+require_once './Model/OrderModel.php';
+
+class OrderController {
+    private $orderModel;
 
     public function __construct() {
-        $this->categoryModel = new CategoryModel();
+        $this->orderModel = new OrderModel();
     }
 
     public function invoke() {
@@ -23,6 +24,9 @@ class CategoryController {
             case 'delete':
                 $this->deletePage();
                 break;
+            case 'order':
+                $this->storePage();
+                break;
         }
 
         if(!isset($_POST['page'])) die();
@@ -38,46 +42,50 @@ class CategoryController {
     }
 
     private function indexPage(){
-        $categoryList = $this->categoryModel->all();
-        require_once './View/Admin/categories/index.php';
+        $orderList = $this->orderModel->all();
+        require_once './View/Admin/orders/index.php';
     }
 
     private function createPage(){
-        require_once './View/Admin/categories/create.php';
+        require_once './View/Admin/orders/create.php';
     }
 
     private function storePage(){
-        $this->categoryModel->create(
+        $this->orderModel->create(
             array(
-                'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'code' => $_POST['code'],
+                'description' => $_POST['description'],
+                'users_id' => $_POST['users_id']
+                
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('orderController', 'index'));
     }
 
     private function editPage(){
-        $category = $this->categoryModel->find($_GET['id']);
-        require_once './View/Admin/categories/edit.php';
+        $order = $this->orderModel->find($_GET['id']);
+        require_once './View/Admin/orders/edit.php';
     }
 
     private function updatePage(){
-        $this->categoryModel->update(
+        $this->orderModel->update(
             array(
-                'id' => $_POST['id'],
-                'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'code' => $_POST['code'],
+                'description' => $_POST['description'],
+                'users_id' => $_POST['users_id']
+                 
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('orderController', 'index'));
     }
 
     private function deletePage(){
         if(!isset($_GET['id'])) die();
-        $this->categoryModel->delete($_GET['id']);
+        $this->orderModel->delete($_GET['id']);
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('orderController', 'index'));
     }
+    
 }

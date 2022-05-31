@@ -26,8 +26,8 @@
 
     <div class="container-fluid">
         <div class="row mt-5">
-
-            <div class="col-md-8">
+        
+            <div class="offset-1 col-md-8">
                 <table class="table" border="1">
                     <thead>
                         <tr>
@@ -58,30 +58,54 @@
                         <?php   
                         $total_all += $product['price']*$product['quantity'];
                         } ?>
-                    </tbody>
-
-                </table>
-                <button type="button" class="btn btn-outline-success " ><i class="fa fa-arrow-left" aria-hidden="true"></i> <a href="<?php echo url_pattern('homeController', 'home'); ?>" style="text-decoration: none; color:black">TIẾP TỤC XEM SẢN PHẨM</a></button>
-            </div>
-            <div class="col-md-4">
-                <table class="table" border="2">
-                    <thead>
-                        <tr>
-                            <th> TỔNG HÓA ĐƠN</th>
+                        <tr>  
+                            <th  >Tổng</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th> <?= number_format($total_all) ?></th>
+                            
                         </tr>
-                    </thead>
-                    <tbody>
-                           <td  >Tổng</td>
-                            <td> <?= number_format($total_all) ?></td>
-                        </tr>
+                       
                     </tbody>
+                    
                 </table>
-                <button type="button" class="btn btn-danger" style="width: 480px;">TIẾN HÀNH THANH TOÁN</button>
-                 
                 
-                
-                 
+               
             </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-outline-success " style="margin-top:20px"><i class="fa fa-arrow-left" aria-hidden="true" ></i> <a href="<?php echo url_pattern('homeController', 'home'); ?>" style="text-decoration: none; color:black"> TIẾP TỤC XEM SẢN PHẨM</a></button>
+                <button type="button"class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top:30px"><i class="fa fa-credit-card" aria-hidden="true"></i> TIẾN HÀNH THANH TOÁN</button>
+            </div>
+            <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">HÓA ĐƠN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formPay" method="post" action="<?php echo url_pattern('homeController', 'payProcess'); ?>">
+                            <label for="inputPassword5" class="form-label">Họ và tên</label>
+                            <input type="text" class="form-control" placeholder="Họ và tên" value="<?php echo $infoUser['full_name']; ?>" name="name">
+                            <label for="inputPassword5" class="form-label">Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="Số điện thoại" value="<?php echo $infoUser['phone']; ?>" name="phone">
+                            <label for="inputPassword5" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ" value="<?php echo $infoUser['address']; ?>" name="address">
+                            <label for="exampleFormControlTextarea1" class="form-label">Ghi chú về đơn hàng</label>
+                            <textarea name="note" class="form-control" placeholder="Ghi chú đơn hàng, ví dụ: thời gian giao hay địa điểm giao chi tiết" rows="3"></textarea>
+                        </form>
+                       
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="submit" form="formPay" class="btn btn-success">THANH TOÁN</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
         </div>
     </div>
     <?php include_once './View/inc/footer.php'?>
