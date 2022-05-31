@@ -16,7 +16,7 @@ class UserModel extends Database {
         $user = $stmt->fetch();
         return new User(
             $user['id'],
-            $user['name'],
+            $user['info_users_name'],
             $user['password'],
             $user['role']
         );
@@ -32,7 +32,7 @@ class UserModel extends Database {
         foreach($query as $user){
             $users[] = new User(
                 $user['id'],
-                $user['name'],
+                $user['info_users_name'],
                 $user['password'],
                 $user['role']
             );
@@ -47,19 +47,19 @@ class UserModel extends Database {
     }
 
     public function create($attr = array()) {
-        $name = $attr['name'];
+        $info_users_name = $attr['info_users_name'];
         $password = $attr['password'];
         $role = $attr['role'];
-        $sql = "insert into users(name, password, role) values('$name','$password', '$role)";
+        $sql = "insert into users(info_users_name, password, role) values('$info_users_name','$password', '$role)";
 
         $this->pdo->exec($sql);
     }
 
     public function update($attr = array()) {
-        $name = $attr['name'];
+        $info_users_name = $attr['info_users_name'];
         $password = $attr['password'];
         $role = $attr['role'];
-        $sql ="UPDATE users set name= '$name', password= '$password', role='$role where id=" . $attr['id'];
+        $sql ="UPDATE users set info_users_name= '$info_users_name', password= '$password', role='$role where id=" . $attr['id'];
         var_dump($sql);
         
         $this->pdo->exec($sql);

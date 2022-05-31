@@ -1,10 +1,11 @@
 <?php
-require_once './Model/CategoryModel.php';
-class CategoryController {
-    private $categoryModel;
+require_once './Model/PayModel.php';
+
+class PayController {
+    private $payModel;
 
     public function __construct() {
-        $this->categoryModel = new CategoryModel();
+        $this->payModel = new PayModel();
     }
 
     public function invoke() {
@@ -23,6 +24,9 @@ class CategoryController {
             case 'delete':
                 $this->deletePage();
                 break;
+            case 'pay':
+                $this->storePage();
+                break;
         }
 
         if(!isset($_POST['page'])) die();
@@ -38,46 +42,50 @@ class CategoryController {
     }
 
     private function indexPage(){
-        $categoryList = $this->categoryModel->all();
-        require_once './View/Admin/categories/index.php';
+        $payList = $this->payModel->all();
+        require_once './View/Admin/pay/index.php';
     }
 
     private function createPage(){
-        require_once './View/Admin/categories/create.php';
+        require_once './View/Admin/pay/create.php';
     }
 
     private function storePage(){
-        $this->categoryModel->create(
+        $this->payModel->create(
             array(
                 'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'phone' => $_POST['phone'],
+                'address' => $_POST['address'],
+                'note' => $_POST['note']
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('payController', 'index'));
     }
 
     private function editPage(){
-        $category = $this->categoryModel->find($_GET['id']);
-        require_once './View/Admin/categories/edit.php';
+        $pay = $this->payModel->find($_GET['id']);
+        require_once './View/Admin/pay/edit.php';
     }
 
     private function updatePage(){
-        $this->categoryModel->update(
+        $this->payModel->update(
             array(
-                'id' => $_POST['id'],
                 'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'phone' => $_POST['phone'],
+                'address' => $_POST['address'],
+                'note' => $_POST['note']
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('payController', 'index'));
     }
 
     private function deletePage(){
         if(!isset($_GET['id'])) die();
-        $this->categoryModel->delete($_GET['id']);
+        $this->payModel->delete($_GET['id']);
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('payController', 'index'));
     }
+    
 }

@@ -69,7 +69,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                <a class="nav-link collapsed" href="<?php echo admin_url_pattern('orderController', 'index'); ?>" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Orders</span>
@@ -77,7 +77,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Orders:</h6>
-                        <a class="collapse-item" href="login.html">List</a>
+                        <a class="collapse-item" href="<?php echo admin_url_pattern('orderController', 'index'); ?>">List</a>
                     </div>
                 </div>
             </li>

@@ -1,10 +1,11 @@
 <?php
-require_once './Model/CategoryModel.php';
-class CategoryController {
-    private $categoryModel;
+require_once './Model/Info_userModel.php';
+
+class Infor_userController {
+    private $Infor_userController;
 
     public function __construct() {
-        $this->categoryModel = new CategoryModel();
+        $this->infor_userModel = new Infor_userController();
     }
 
     public function invoke() {
@@ -23,6 +24,9 @@ class CategoryController {
             case 'delete':
                 $this->deletePage();
                 break;
+            case 'info_user':
+                $this->storePage();
+                break;
         }
 
         if(!isset($_POST['page'])) die();
@@ -38,46 +42,50 @@ class CategoryController {
     }
 
     private function indexPage(){
-        $categoryList = $this->categoryModel->all();
-        require_once './View/Admin/categories/index.php';
+        $info_userList = $this->infor_userModel->all();
+        require_once './View/Admin/info_users/index.php';
     }
 
     private function createPage(){
-        require_once './View/Admin/categories/create.php';
+        require_once './View/Admin/info_users/create.php';
     }
 
     private function storePage(){
-        $this->categoryModel->create(
+        $this->infor_userModel->create(
             array(
                 'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'phone' => $_POST['phone'],
+                'address' => $_POST['address'],
+                'note' => $_POST['note']
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('info_userController', 'index'));
     }
 
     private function editPage(){
-        $category = $this->categoryModel->find($_GET['id']);
-        require_once './View/Admin/categories/edit.php';
+        $info_user = $this->infor_userModel->find($_GET['id']);
+        require_once './View/Admin/info_users/edit.php';
     }
 
     private function updatePage(){
-        $this->categoryModel->update(
+        $this->infor_userModel->update(
             array(
-                'id' => $_POST['id'],
                 'name' => $_POST['name'],
-                'description' => $_POST['description']
+                'phone' => $_POST['phone'],
+                'address' => $_POST['address'],
+                'note' => $_POST['note']
             )
         );
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('info_userController', 'index'));
     }
 
     private function deletePage(){
         if(!isset($_GET['id'])) die();
-        $this->categoryModel->delete($_GET['id']);
+        $this->infor_userModel->delete($_GET['id']);
 
-        redirect(admin_url_pattern('categoryController', 'index'));
+        redirect(admin_url_pattern('info_userController', 'index'));
     }
+    
 }

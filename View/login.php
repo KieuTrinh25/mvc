@@ -30,25 +30,27 @@
 	<hr>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
+        
             <form action="index.php" method="POST">
+                
                 <input type="hidden" name="controller" value="authController">
                 <input type="hidden" name="page" value="register">
                 <h1>ĐĂNG KÝ</h1>
+                <?php if(isset($_SESSION['errors'])) { ?>
+                <h5 style="color: red;"><?php echo $_SESSION['errors']; unset($_SESSION['errors']); ?></h5>
+                 <?php } ?>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>Điền các thông tin để đăng ký</span>
-                <input type="text" placeholder="Họ và tên" name="name" id="name">
-                <label for="password"></label>
-                <input type="text" placeholder="Nhập tên tài khoản " name="username" id="username">
-                <label for="password"></label>
-                <input type="email" placeholder="Nhập email" name="mail" id="mail">
-                <label for="password"></label>
+                <input type="text" placeholder="Tên tài khoản" name="name" id="name">
+                <input type="text" placeholder="Tên đầy đủ" name="full_name" id="name">
+                <input type="text" placeholder="Số điện thoại" name="phone" id="phone">             
                 <input type="password" placeholder="Nhập mật khẩu" name="password" id="password">
-                <label for="password-repeat"></label>
                 <input type="password" placeholder="Nhập lại mật khẩu" name="password-repeat" id="password-repeat">
+                <input type="text" placeholder="Địa chỉ" name="address" id="address">
                 <button type="submit" class="submit">Đăng ký</button>
 
             </form>
@@ -74,7 +76,7 @@
             <div class="">
             </div>        
             <div class="register login">
-                <p><span>Quên <a href="#" style="color: blue;">mật khẩu?</a></span></p>
+                <p> <a href="#" style="color: blue;"> Quên mật khẩu?</a></p>
                 <button type="submit" >ĐĂNG NHẬP</button>
             </div>
             </form>

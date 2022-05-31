@@ -1,6 +1,9 @@
 <?php
 require_once './Model/ProductModel.php';
 require_once './Controller/Auth.php';
+require_once './Model/PayModel.php';
+require_once './Model/OrderModel.php';
+require_once './Model/OrderDetailModel.php';
 
 class HomeController {
     private $productModel;
@@ -48,6 +51,9 @@ class HomeController {
                 break;
             case 'order':
                 $this->orderPage();
+                break;
+            case 'payProcess':
+                $this->payProcess();
                 break;
         }
     }
@@ -98,7 +104,10 @@ class HomeController {
             $productList = $_SESSION['cart'];
         else 
             $productList = array();
-            
+
+        if(isset($_SESSION['infoUser']))
+            $infoUser = $_SESSION['infoUser'];
+
         require_once './View/cart.php';
     }
     private function orderPage() {
@@ -106,5 +115,44 @@ class HomeController {
         $productModel = new ProductModel();
         $productList = $productModel->all();
         require_once './View/order.php';
+    }
+    
+    private function payProcess()
+    {
+        //Kiem tra nguoi dung da login chua
+        $auth = new Auth();
+        $user = $auth->user();
+        if($user == NULL || $user['role'] != 'admin'){ //login thanh cong
+            redirect(url_pattern('homeController', 'home'));
+        }
+
+        //Da login
+        $user = (new Auth())->user();
+
+        $orderModel = new OrderModel();
+        $orders_code = substr(md5(mt_rand()), 0, 7);
+        $orderModel->create(
+            array(
+                'code' => $orders_code,
+                'description' => '001',
+                'users_id' => $user['id']
+            )
+        );
+
+        $orderDetailModel = new OrderDetailModel();
+        $cart = $_SESSION['cart'];
+        foreach($cart as $orderDetail){
+            $orderDetailModel->create(
+                array(
+                    'orders_code' => $orders_code,
+                    'products_id' => $orderDetail['productId'],	
+                    'quantity' => $orderDetail['quantity']
+                )
+            );
+        }
+        unset($_SESSION['cart']);
+
+        redirect(url_pattern('homeController', 'home'));
+        
     }
 }
