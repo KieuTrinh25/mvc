@@ -62,7 +62,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
+                                            <!-- <th>STT</th> -->
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Phone</th>
@@ -70,26 +70,16 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr> 
-                                            <th>STT</th>
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                           
-                                    </tfoot>
+                                   
                                     <tbody>
-                                    <a href="#">
-                                        <?php foreach($info_userList as $info_user) { ?>
+                                        <?php // foreach( $info_userList as $info_user) { ?>
                                             <tr>
-                                                <td><?php echo increment($i); ?></td>
-                                                <td><?php echo $info_user->name; ?></td>
-                                                <td><?php echo $info_user->phone; ?></td>
-                                                <td><?php echo $info_user->address; ?></td>
+                                                <td><?php echo $info_user['full_name']; ?></td>
+                                                <td><?php echo $info_user['full_name']; ?></td>
+                                                <td><?php echo $info_user['phone']; ?></td>
+                                                <td><?php echo $info_user['address']; ?></td>
                                              </tr>
-                                        <?php } ?>
-                                    </a>
+                                        <?php // } ?>
                                     
                                     </tbody>
                                 </table>
@@ -101,34 +91,25 @@
                                     <thead>
                                         <tr>
                                             <th>STT</th>
-                                            <th>Code</th>
-                                            <th>Description</th>
-                                            <th>Users_id</th>
+                                            <th>Orders_code</th>
+                                            <th>Products_id</th>
+                                            <th>Quantity</th>
                                             <th>#</th>
                                             <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr> 
-                                        <th>STT</th>
-                                            <th>Code</th>
-                                            <th>Description</th>
-                                            <th>Users_id</th>
-                                            <th>#</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </tfoot>
+                                   
                                     <tbody>
                                    
-                                        <?php foreach($orderdetailList as $orderdetail) { ?>
+                                        <?php foreach($orderdetailList as  $orders_detail) { ?>
                                             <tr>
                                                 <td><?php echo increment($i); ?></td>
-                                                <td><?php echo $orderdetail->code; ?></td>
-                                                <td><?php echo $orderdetail->description; ?></td>
-                                                <td><?php echo $orderdetail->users_id; ?></td>
+                                                <td><?php echo $orders_detail->orders_id; ?></td>
+                                                <td><?php echo $orders_detail->products_id; ?></td>
+                                                <td><?php echo $orders_detail->quantity; ?></td>
                                             
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'edit', $orderdetail->id); ?>">Edit</a></td>
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'delete', $orderdetail->id); ?>">Delete</a></td>
+                                                <td><a href="<?php echo admin_url_pattern('orderdetailController', 'edit', $orderdetail->id); ?>">Edit</a></td>
+                                                <td><a href="<?php echo admin_url_pattern('orderdetailController', 'delete', $orderdetail->id); ?>">Delete</a></td>
                                             </tr>
                                         <?php } ?>
                                     
@@ -178,7 +159,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary"  href="<?php echo url_pattern('authController', 'logout'); ?>">Logout</a>
                 </div>
             </div>
         </div>

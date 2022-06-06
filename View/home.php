@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Trade</title>
-    
-	<link rel="stylesheet" href="./Public/css/style1.css">
-        
+    <title>Happy Trade</title>    
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -19,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./Public/js/owl.carousel.js"></script>
     <script src="./Public/js/web.js"></script>
+    <link rel="stylesheet" href="./Public/css/style1.css">    
 </head>
 <body onload="autoloadimg ()">
 <?php include_once './View/inc/header.php'?>
@@ -27,7 +25,6 @@
         <div class="container">
             <h4 style="text-align: center; margin:30px 0px 30px 30px">Mua sản phẩm được lựa chọn từ vườn </h4>
             <div class="img-ctn">
-
                 <div class="img-container">
                     <div class="img-a1">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_cate_1.png"  class="over ">  
@@ -35,7 +32,7 @@
                             <img src="./Public/images/index_cate_1_hover.png"   > 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Rau củ</a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Rau củ</a>
                 </div>
                 <div class="img-container">
                     <div class="img-a1">
@@ -44,7 +41,7 @@
                             <img src="./Public/images/index_cate_2_hover.png" > <br> 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Hải sản </a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Hải sản </a>
                 </div>
                 <div class="img-container">
                     <div class="img-a1">
@@ -53,7 +50,7 @@
                             <img src="./Public/images/index_cate_3_hover.png"   > 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Trứng thịt </a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Trứng thịt </a>
                 </div>
                 <div class="img-container">
                     <div class="img-a1">
@@ -62,7 +59,7 @@
                             <img src="./Public/images/index_cate_4_hover.png"   > 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Trái cây </a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Trái cây </a>
                 </div>
                 <div class="img-container">
                     <div class="img-a1">
@@ -71,7 +68,7 @@
                             <img src="./Public/images/index_cate_5_hover.png"   > 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Đồ khô </a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Đồ khô </a>
                 </div>
                 <div class="img-container">
                     <div class="img-a1">
@@ -80,7 +77,7 @@
                             <img src="./Public/images/index_cate_6_hover.png"   > 
                         </div>
                     </div>
-                    <a href="http://mauweb.monamedia.net/happytrade/danh-muc/rau-cu/">Đồ uống </a>
+                    <a href="<?php echo url_pattern('homeController', 'shop'); ?>">Đồ uống </a>
                 </div>
             </div>
             <div class="clear"></div>  
@@ -109,22 +106,18 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </div>  
-                                                        
+                                    </div>                     
                             <?php } ?>
                         </div>
-                        <button type="button" class="btn btn-success" style="margin-left: 50px; ">Xem thêm</button>  
+                        <a  class="btn btn-success" href="<?php echo url_pattern('homeController', 'shop', $product->id); ?>" style="margin-left: 50px; ">Xem thêm </a>
                 </div>
-            <div class="clear"></div>
-            
+            <div class="clear"></div>        
             <h5 style="margin:30px 0px 30px 30px">Kết nối nhà vườn</h5>
-            
             <div class="owl-carousel owl-theme" style="margin-left: 35px;">
                 <div class="item">
                     <div class="card border-0" style="width: 18rem;">
                         <div class="border">
                             <img src="./public/images/logo-1.png "class="card-img-top p-1" alt="..." >
-
                          </div>
                         <div class="card-body">
                             <h6 class="">Công ty Thực Phẩm Tâm Minh</h6>
@@ -136,20 +129,17 @@
                     <div class="card border-0" style="width: 18rem;">
                         <div class="border">
                             <img src="./public/images/upload_2a9f0c359ba448c785490ea0c0ed3dc0_large.jpg" class="card-img-top p-1" alt="...">
-
                          </div>
                         <div class="card-body">
                             <h6 class="">Antofu Việt Nam</h6>
                             <p class="card-text">Antofu Việt Nam là công ty đầu tư 100% nguồn vốn ...</p>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
                 <div class="item">
                     <div class="card border-0" style="width: 18rem;">
                         <div class="border">
                             <img src="./public/images/upload_183f92f8231a4662af441d7826971e1e_large.jpg" class="card-img-top p-1" alt="...">
-
                          </div>
                         <div class="card-body">
                             <h6 class="">An Mộc Farm</h6>
@@ -161,7 +151,6 @@
                     <div class="card border-0" style="width: 18rem;">
                         <div class="border">
                             <img src="./public/images/viet_nature_logotype_color_on_white2.png" class="card-img-top p-1" alt="...">
-
                          </div>
                         <div class="card-body">
                             <h6 class="">Công ty Thiên Nhiên Việt</h6>
@@ -173,23 +162,19 @@
                     <div class="card border-0" style="width: 18rem;">
                         <div class="border">
                             <img src="./public/images/binca-vietnam-logo_large.png" class="card-img-top p-1" alt="...">
-
                          </div>
                         <div class="card-body">
                             <h6 class="">Binca Việt Nam</h6>
                             <p class="card-text">Chính thức bước vào thị trường Việt Nam vào năm 1998 ...</p>
                         </div>
                     </div>
-                </div>  
-                
-                 
+                </div>    
             </div>
             <h5 style="margin:30px 0px 30px 30px">Hành trình Organic bắt đầu từ đây</h5>
             <div class="row " style="margin-left: 10px; "  >
                 <div class="col-md-3" >
                     <div class="border">
                         <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_news_1.png" style="height: 60%; width: 100%;">
-
                     </div>
                     <div class="card-body">
                         <h6 style="margin-top: 20px; "><a href="#" >Làm thế nào để được chứng nhận hữu cơ ở Việt Nam?</a></h6>
@@ -207,8 +192,7 @@
                 </div>
                 <div class="col-md-3" >
                     <div class="border">
-                        <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_news_3.jpg"style="height:  60%; width: 100%;">
-                  
+                        <img src="http://mauweb.monamedia.net/happytrade/wp-content/uploads/2019/05/index_news_3.jpg"style="height:  60%; width: 100%;">                
                     </div>
                     <div class="card-body">
                         <h6 style="margin-top: 20px;"><a href="#">Nông nghiệp hữu cơ và thực trạng chứng nhận tại Việt Nam</a></h6>
@@ -224,14 +208,8 @@
                         <p>Thực phẩm hữu cơ – thực phẩm organic xuất hiện trong thời gian gần đây như là cứu cánh của nhiều bà nội trợ Việt Nam.</p>
                     </div>
                 </div>
-            </div>
-             
-                
-            
-        </div>
-         
-        
-        
+            </div> 
+        </div>   
     </div>
     <!--end wrapper-->
     <?php include_once './View/inc/footer.php'?>

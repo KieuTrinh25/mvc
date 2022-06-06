@@ -45,7 +45,7 @@
                     <div class="search " style="margin-right:40px;">
                         <form action="search.php" method="get">
                             <input name="q" type="search-box" size="20" placeholder="Tìm Kiếm...">
-                            <a class="btn hover-white " href="#" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a class="btn hover-white " href="<?php echo url_pattern('homeController', 'search'); ?>" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
                             
                         </form>
                         

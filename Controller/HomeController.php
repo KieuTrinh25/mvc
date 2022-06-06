@@ -86,7 +86,13 @@ class HomeController {
     private function contactPage() {
         require_once './View/contact.php';
     }
+   
     private function searchPage() {
+        if(isset($_GET['q'])){
+            //order 
+            $productModel = new ProductModel();
+            $productList = $productModel->findByName($_GET['q']);
+        }
         require_once './View/search.php';
     }
     private function loginPage() {
