@@ -67,6 +67,25 @@ class ProductModel extends Database {
         
         $this->pdo->exec($sql);
     }
+    public function findByName($name){
+        $sql = "select * from products where name like '%$name%'";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+    
+        $products = array();
+    
+        foreach($query as $product){
+            $products[] = new Product(
+                $product['id'],
+                $product['name'],
+                $product['price'],
+                $product['quantity'],
+                $product['image']
+            );
+        }
+    
+        return $products;
+    }
     
     
 }

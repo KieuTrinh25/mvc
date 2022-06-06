@@ -58,13 +58,11 @@
                         <div class="col-md-12 mt-3">
                             <i class="fa fa-check-square-o">    Đổi trả trong vòng 24h</i>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                
-                            </div>
-                            <div class="col-md-8 mt-3">
-                                <button type="button" class="btn btn-outline-success " >THÊM VÀO GIỎ HÀNG</button>
-                            </div>
+                        <div class="row mt-3">
+                            
+                             
+                                <a class="btn btn-outline-success" href="<?php echo url_pattern('homeController', 'cart', $product->id); ?>">THÊM VÀO GIỎ HÀNG</a>
+                            
                         </div>
                     </div>               
                 </div>

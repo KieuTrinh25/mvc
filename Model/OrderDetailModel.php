@@ -14,7 +14,7 @@ class OrderDetailModel extends Database {
         $sql = "select * from orders_details where id=? LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
-    
+        
         $orders_detail = $stmt->fetch();
         return new OrderDetail(
             $orders_detail['id'],
@@ -27,29 +27,33 @@ class OrderDetailModel extends Database {
     }
 
     public function all() {
-        $sql = "select * from  orders_details";
+        $sql = "select * from  orders_details where orders_code = ? ";
         $query = $this->pdo->prepare($sql);
-        $query->execute();
+        $query->execute([$_GET['id']]);
 
-        $orders_detail = array();
+        $orders_details = array();
 
-        foreach($query as $order){
-            $orders_detail[] = new OrderDetail(
+        foreach($query as $orders_detail){
+            $orders_details[] = new OrderDetail(
             $orders_detail['id'],
             $orders_detail['orders_code'],
             $orders_detail['products_id'],
-            $orders_detail['quantity'],
-            
-                 
-            );
-            
+            $orders_detail['quantity'],     
+            );    
         }
-
-        return $orders_detail;
+        return $orders_details;
     }
     public function delete($id){
         $sql = "delete from orders_details where id = " . $id;
         $this->pdo->exec($sql);
+    }
+
+    public function findUser()
+    {
+        $sql = "select full_name, phone, address, info_users.users_id from orders inner join info_users on orders.users_id = info_users.users_id where orders.code =? ";
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$_GET['id']]);
+        return $query->fetch();
     }
 
     public function create($attr = array()) {

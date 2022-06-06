@@ -13,16 +13,6 @@ a.hover-white:hover.btn {
     color: #fff !important;
 }
 
-.w-60{
-    width:40%;
-    color: rgb(252, 228, 11);
-    padding-left: 100px;
-}
-.w-40{
-    width:40%;
-    color: rgb(252, 228, 11);
-    padding-left: 200px;
-} 
 #bottom-header{
     margin-top: 30px;
 }
@@ -99,7 +89,7 @@ a.hover-white:hover.btn {
 }
 .img-container a:hover{
     
-    color: rgb(252, 228, 11);
+    color: rgb(59, 128, 105);
 }
 .container h5{
     font-size: 25px;
@@ -115,18 +105,7 @@ a.hover-white:hover.btn {
 .main  .card:hover{
     border: 1px solid #777;
 }
-.view-project{
-	font-size: 25px;
-    margin: 40px 600px 20px;
-    line-height: 10px;
-    padding: 15px 25px;
-    border: 3px solid  #777;
-    border-radius: 100px;
-    text-align: center;
-    width: 200px;
-    text-decoration: none;
-    color: rgb(252, 228, 11);
-}
+
 .carousel { margin-top: 50px; margin-bottom: 50px;}
 .carousel img { 
     padding-left: 30px;
@@ -138,10 +117,12 @@ a.hover-white:hover.btn {
   }
 }
 @media screen and (max-width: 1024px){
-  .carousel img { 
-    width: 100%; 
+    .carousel img { 
+        width: 100%; 
   }
+  
 }
+
 #wrapper a  {
     text-decoration: none;   
     

@@ -42,7 +42,9 @@ class OrderDetailController {
     }
 
     private function indexPage(){
-        $orderdetailList = $this->orderModel->all();
+        $orderdetailList = $this->orderDetailModel->all();
+        $info_user = $this->orderDetailModel->findUser();
+        
         require_once './View/Admin/orders_details/index.php';
     }
 
@@ -64,7 +66,7 @@ class OrderDetailController {
     }
 
     private function editPage(){
-        $order = $this->orderModel->find($_GET['id']);
+        $order = $this->orderDetailModel->find($_GET['id']);
         require_once './View/Admin/orders_details/edit.php';
     }
 

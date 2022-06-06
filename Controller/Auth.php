@@ -45,38 +45,56 @@ class Auth extends Database{
 
     public function register($name, $password, $full_name, $phone, $address){
         //check name is exist
-        $sql = "select * from users where name=? LIMIT 1";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name]);
-    
-        $user = $stmt->fetch();
-
-        if($user){
-            //user name existed
-            $_SESSION['errors'] = 'User exited. Please choose other name';
-            redirect(url_pattern('authController', 'login')); die();
-        }else{
-            //Them moi user
-            $sql = "insert into users(name, password, role) values('$name','$password', 'user')";
-            $this->pdo->exec($sql);
-
-            //Lay thong tin user vua insert vao database
+        if($this->validating($phone)){
             $sql = "select * from users where name=? LIMIT 1";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([$name]);
-        
+            $stmt->execute([$name]);   
             $user = $stmt->fetch();
 
-            //Them thong tin infouser
-            $infoUserModel = new InfoUserModel();
-            $infoUserModel->create(
-                array(
-                    'full_name' => $full_name,
-                    'phone' => $phone,
-                    'address' => $address,
-                    'users_id' => $user['id']
-                )
+            $sql2 = "select * from info_users where phone=? LIMIT 1";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([$phone]);   
+            $phone = $stmt2->fetch();
+            if($user ){
+                //user name existed
+                $_SESSION['errors'] = 'This account has already existed. Please choose another account name.';
+                redirect(url_pattern('authController', 'login')); die();
+            } else if($phone ){
+                //user name existed
+                $_SESSION['errors'] = 'This phone number already exists. Please enter another phone number.';
+                redirect(url_pattern('authController', 'login')); die();
+            } else {
+            //Them moi user
+                $sql = "insert into users(name, password, role) values('$name','$password', 'user')";
+                $this->pdo->exec($sql);
+
+                //Lay thong tin user vua insert vao database
+                $sql = "select * from users where name=? LIMIT 1";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$name]);
+                $user = $stmt->fetch();
+                //Them thong tin infouser
+                $infoUserModel = new InfoUserModel();
+                $infoUserModel->create(
+                    array(
+                        'full_name' => $full_name,
+                        'phone' => $phone,
+                        'address' => $address,
+                        'users_id' => $user['id']
+                    )
                 );
+            }      
+        
+        } 
+       
+    }
+    public function validating($phone){
+        if(preg_match('/^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$/', $phone)) {
+            return true;
+        } else {
+            return false;
         }
     }
+    
+   
 }

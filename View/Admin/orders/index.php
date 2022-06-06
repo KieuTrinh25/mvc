@@ -86,8 +86,8 @@
                                   
                                         <?php foreach($orderList as $order) { ?>
                                             <tr>
-                                                <td><?php echo increment($i); ?></td>
-                                                <td><?php echo $order->code; ?></td>
+                                                <td> <a href="<?php admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo increment($i); ?></a></td>
+                                                <td> <a href="<?php echo admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo $order->code; ?></a></td>
                                                 <td><?php echo $order->description; ?></td>
                                                 <td><?php echo $order->users_id; ?></td>
                                                 <td><?php echo $order->created_at; ?></td>
@@ -143,7 +143,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary"  href="<?php echo url_pattern('authController', 'logout'); ?>">Logout</a>
                 </div>
             </div>
         </div>

@@ -32,9 +32,9 @@
                           </div>
                           <div class="col-md-9">
                               <p><img src="./public/images/Đc.png"width="30px" height="30px">          176 Trần Phú phường Phước Vĩnh Tp Huế</p>
-                              <p><img src="./public/images/phone1.png"width="30px" height="30px">      012345679</p>
-                              <p><img src="./public/images/email.jfif"width="30px" height="30px">      Email </p>
-                              <p><img src="./public/images/faceb2.png"width="30px" height="30px">      Facebook </p>
+                              <p><img src="./public/images/phone1.png"width="30px" height="30px">      0792545710</p>
+                              <p><img src="./public/images/email.jfif"width="30px" height="30px">      Email: trinh0792545710@gmail.com </p>
+                              <p><img src="./public/images/faceb2.png"width="30px" height="30px">      Facebook: https://www.facebook.com/thikieutrinh.tran.125/ </p>
                         </div>
                       </div>
                       <div class="row  ">

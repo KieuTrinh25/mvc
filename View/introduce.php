@@ -23,61 +23,58 @@
         
        <div class="container">
             <div class ="monamedia">
-                <h1  style = "text-align:center ; margin-top:20px"> PANDA MEDIA </h1>
-                <h6  style = "text-align:center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,<br>
-                            sed diam nonummy nibh.</h6> 
+                <h1  style = "text-align:center ; margin-top:20px;"> PANDA MEDIA </h1>
+                <h6  style = "text-align:center ; margin-top:20px;">THÁI ĐỘ CỦA BẠN LÀ SỰ THÀNH CÔNG CỦA CHÚNG TÔI.</h6> 
             </div>              
            <div class="row mt-5">
                <div class="col-xs-2 col-3   mb-4 " style="margin-left:50px">
                    <div class="row ">
-                        <div class="col-md-12 text-center " >
-                            <img src="./public/images/new.png"   width="200px" height="100px">
+                        <div class="col-md-12  " >
+                            <img src="./Public/images/sr.jpg"   width="200px" height="150px"  style="margin-left: 40px;" >
                              
-                            <h5>New Features</h5>
-                            <p>Lorem ipsum dolor sit amet,</p>
-                            <p>consectetuer adipiscing elit, sed</p>
-                            <p>diam nonummy nibh euismod</p>
-                            <p>tincidunt</p>
+                            <h5>NGÀY HỘI GIẢM GIÁ</h5>
+                            
+                            <p style="margin-left: 30px;"  >Mua 1 được 2. Một ngày duy nhất<br>
+                            Thấy ưu đãi mà không ngó thì khó lòng ngủ yên</p>
                         </div> 
                    </div>
                    <div class="row ">
-                       <div class="col-md-12 text-center " >
-                            <img src="./public/images/re.png"  width="200px" height="100px">
-                             
-                            <h5>Unlimited Options</h5>
-                            <p>Lorem ipsum dolor sit amet,</p>
-                            <p>consectetuer adipiscing elit, sed</p>
-                            <p>diam nonummy nibh euismod</p>
-                            <p>tincidunt</p>
+                       <div class="col-md-12 mt-5 " >
+                            <img src="./Public/images/xoai.jpg"  width="200px" height="150px"style="margin-left: 30px;"  >
+                              
+                             <h5>TRÁI CÂY TƯƠI</h5>
+                            <p style="margin-left: 30px;">Bánh mỳ là phải kẹp bơ<br>
+                            Gặp nhau mà lỡ ngó lơ sao đành<br>
+                            Em đây bày tỏ lòng thành<br>
+                            Sáng giờ like dạo chào ngàn chị em</p>
                        </div> 
                    </div>
                </div>
                <div class="col-xs-2 col-4  mt-5  ">
                    <div class="row">
                        <div class="col-md-12">
-                           <img src="./public/images/ipad2.png" width="500px" height="550px">
+                           <img src="./Public/images/sale.jpg" width="458px" height="500px" style="margin-left: 30px;" >
                        </div>
                    </div>
                </div>
-               <div class=" col-xs-2 col-4 " style="margin-left:20px">
+               <div class=" col-xs-2 col-4 " style="margin-left:60px">
                    <div class="row ">
-                        <div class="col-md-12 text-center " >
-                            <img src="./public/images/un.png" width="200px" height="100px">
-                            <h5>Responsive</h5>
-                            <p>Lorem ipsum dolor sit amet,</p>
-                            <p>consectetuer adipiscing elit, sed</p>
-                            <p>diam nonummy nibh euismod</p>
-                            <p>tincidunt</p>
+                        <div class="col-md-12 " >
+                            <img src="./Public/images/tc.jpg" width="200px" height="150px" style="margin-left: 100px;">
+                            <h5>TƯNG BỪNG KHAI TRƯƠNG</h5>
+                            <p  style="margin-left: 70px;">Xả hàng tồn kho giá rẻ như cho <br>
+                            Giá rẻ như bèo ! giá cho người nghèo<br>
+                            Giảm giá cực mạnh !</p>
                         </div> 
                    </div>
                    <div class="row ">
-                        <div class="col-md-12 text-center " >
-                            <img src="./public/images/cus.png"  width="200px" height="100px">
-                            <h5>Customize Anything</h5>
-                            <p>Lorem ipsum dolor sit amet,</p>
-                            <p>consectetuer adipiscing elit, sed</p>
-                            <p>diam nonummy nibh euismod</p>
-                            <p>tincidunt</p>
+                        <div class="col-md-12 mt-5" >
+                            <img src="./Public/images/hv.png"  width="200px" height="150px" style="margin-left: 100px;">
+                            
+                            <h5 style="margin-top: 30px;">SẢN PHẨM TƯƠI NGON</h5>
+                            <p style="margin-left: 70px;">Chất lượng sản phẩm đã được kiểm định<br>
+                            Uy tín làm nên thương hiệu<br>
+                            Hàng Việt Nam chất lượng cao</p>
                         </div> 
                    </div>
                 </div>

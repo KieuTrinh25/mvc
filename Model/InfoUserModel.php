@@ -32,10 +32,10 @@ class InfoUserModel extends Database {
 
         foreach($query as $info_user){
             $info_users[] = new InfoUser(
-                $info_users['id'],
-                $info_users[' name'],
-                $info_users['phone'],
-                $info_users['address'],
+                $info_user['id'],
+                $info_user[' name'],
+                $info_user['phone'],
+                $info_user['address'],
                 $info_user['users_id']
             );
         }

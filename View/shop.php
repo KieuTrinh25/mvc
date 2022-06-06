@@ -25,7 +25,7 @@
    <!--end header-->
    <div id="content">
         <div class="container">
-            <h5>KIẾN THỨC</h5>
+            <h5>CỬA HÀNG</h5>
             <div class ="row">
                 <div class="col-md-4  col-3 col-lg-3">
                     <table class="table table-hover">
@@ -71,7 +71,7 @@
                         </table>
                     </table>
                 </div>
-                <div class=" col-md-7 col-9 col-lg-9  ">
+                <div class=" col-xs-7 col-9 col-lg-9 mb-4 ">
                     <div class="row " style="margin-left: 20px;">
                         <!--Vùng dữ liệu-->
                         <?php 
@@ -83,7 +83,8 @@
                                                 <div class="card-body">
                                                     <p style="color: black" ><?php echo $product->name; ?></p>
                                                     <b class="card-text  " style="color: orange"><?php echo $product->price; ?>đ</b>       
-                                                    <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                    
+                                                    <a  class="btn btn-success" href="<?php echo url_pattern('homeController', 'cart', $product->id); ?>">Thêm vào giỏ </a>
                                                 </div>
                                             </div>
                                         </a>

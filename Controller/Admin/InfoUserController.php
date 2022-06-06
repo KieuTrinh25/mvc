@@ -1,11 +1,11 @@
 <?php
-require_once './Model/Info_userModel.php';
+require_once './Model/InfoUserModel.php';
 
-class Infor_userController {
-    private $Infor_userController;
+class InfoUserController {
+    private $InfoUserController;
 
     public function __construct() {
-        $this->infor_userModel = new Infor_userController();
+        $this->infouserModel = new InfoUserController();
     }
 
     public function invoke() {
@@ -42,7 +42,7 @@ class Infor_userController {
     }
 
     private function indexPage(){
-        $info_userList = $this->infor_userModel->all();
+        $info_userList = $this->infouserModel->all();
         require_once './View/Admin/info_users/index.php';
     }
 
@@ -51,7 +51,7 @@ class Infor_userController {
     }
 
     private function storePage(){
-        $this->infor_userModel->create(
+        $this->infouserModel->create(
             array(
                 'name' => $_POST['name'],
                 'phone' => $_POST['phone'],
@@ -64,12 +64,12 @@ class Infor_userController {
     }
 
     private function editPage(){
-        $info_user = $this->infor_userModel->find($_GET['id']);
+        $info_user = $this->infouserModel->find($_GET['id']);
         require_once './View/Admin/info_users/edit.php';
     }
 
     private function updatePage(){
-        $this->infor_userModel->update(
+        $this->infouserModel->update(
             array(
                 'name' => $_POST['name'],
                 'phone' => $_POST['phone'],
@@ -83,7 +83,7 @@ class Infor_userController {
 
     private function deletePage(){
         if(!isset($_GET['id'])) die();
-        $this->infor_userModel->delete($_GET['id']);
+        $this->inforUserModel->delete($_GET['id']);
 
         redirect(admin_url_pattern('info_userController', 'index'));
     }
