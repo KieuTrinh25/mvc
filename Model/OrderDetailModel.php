@@ -48,14 +48,6 @@ class OrderDetailModel extends Database {
         $this->pdo->exec($sql);
     }
 
-    public function findUser()
-    {
-        $sql = "select full_name, phone, address, info_users.users_id from orders inner join info_users on orders.users_id = info_users.users_id where orders.code =? ";
-        $query = $this->pdo->prepare($sql);
-        $query->execute([$_GET['id']]);
-        return $query->fetch();
-    }
-
     public function create($attr = array()) {
         $orders_code = $attr['orders_code'];
         $products_id = $attr['products_id'];

@@ -49,13 +49,18 @@ class InfoUserModel extends Database {
     }
 
     public function create($attr = array()) {
-        $users_id = $attr['users_id'];
         $full_name = $attr['full_name'];
-        $phone = $attr['phone'];
         $address = $attr['address'];
-        $sql = "insert into info_users(full_name, phone, address, users_id) values('$full_name','$phone', '$address', $users_id)";
+        $users_id = $attr['users_id'];
 
-        $this->pdo->exec($sql);
+        $sql = "insert into info_users(full_name, address, users_id) values(:full_name, :address, :users_id)";        
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->bindParam(':full_name', $full_name);
+        $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':users_id', $users_id);
+
+        $stmt->execute();
     }
 
     public function update($attr = array()) {

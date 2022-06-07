@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./Public/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -65,6 +66,7 @@
                                             <th>STT</th>
                                             <th>Code</th>
                                             <th>Description</th>
+                                            <th>Status</th>
                                             <th>Users_id</th>
                                             <th>Created_id</th>
                                             <th>#</th>
@@ -85,10 +87,11 @@
                                     <tbody>
                                   
                                         <?php foreach($orderList as $order) { ?>
-                                            <tr>
+                                            <tr class="<?php echo orderStyle($order->status); ?>">
                                                 <td> <a href="<?php admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo increment($i); ?></a></td>
                                                 <td> <a href="<?php echo admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo $order->code; ?></a></td>
                                                 <td><?php echo $order->description; ?></td>
+                                                <td><?php echo $order->status; ?></td>
                                                 <td><?php echo $order->users_id; ?></td>
                                                 <td><?php echo $order->created_at; ?></td>
                                             

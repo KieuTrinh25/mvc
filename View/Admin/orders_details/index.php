@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./Public/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -63,10 +64,9 @@
                                     <thead>
                                         <tr>
                                             <!-- <th>STT</th> -->
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
+                                            <th>FullName</th>
                                             <th>Address</th>
+                                            <th>Phone</th>
                                             
                                         </tr>
                                     </thead>
@@ -75,9 +75,8 @@
                                         <?php // foreach( $info_userList as $info_user) { ?>
                                             <tr>
                                                 <td><?php echo $info_user['full_name']; ?></td>
-                                                <td><?php echo $info_user['full_name']; ?></td>
-                                                <td><?php echo $info_user['phone']; ?></td>
                                                 <td><?php echo $info_user['address']; ?></td>
+                                                <td><?php echo $user['phone']; ?></td>
                                              </tr>
                                         <?php // } ?>
                                     

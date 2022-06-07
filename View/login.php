@@ -45,9 +45,8 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>Điền các thông tin để đăng ký</span>
-                <input type="text" placeholder="Tên tài khoản" name="name" id="name">
-                <input type="text" placeholder="Tên đầy đủ" name="full_name" id="name">
-                <input type="text" placeholder="Số điện thoại" name="phone" id="phone">             
+                <input type="text" placeholder="Số điện thoại" name="phone" id="phone">        
+                <input type="text" placeholder="Tên đầy đủ" name="full_name" id="full_name">     
                 <input type="password" placeholder="Nhập mật khẩu" name="password" id="password">
                 <input type="password" placeholder="Nhập lại mật khẩu" name="password-repeat" id="password-repeat">
                 <input type="text" placeholder="Địa chỉ" name="address" id="address">

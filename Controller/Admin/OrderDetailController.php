@@ -43,7 +43,8 @@ class OrderDetailController {
 
     private function indexPage(){
         $orderdetailList = $this->orderDetailModel->all();
-        $info_user = $this->orderDetailModel->findUser();
+        $info_user = $_SESSION['infoUser'];
+        $user = $_SESSION['user'];
         
         require_once './View/Admin/orders_details/index.php';
     }
