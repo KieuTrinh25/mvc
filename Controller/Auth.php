@@ -16,10 +16,13 @@ class Auth extends Database{
         return NULL;
     }
 
-    public function login($name, $password){
-        $sql = "select * from users where name=? and password=? LIMIT 1";
+    public function login($phone, $password){
+        $sql = "select * from users where phone=:phone and password=:password LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $password]);
+        $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":password", $password);
+        $stmt->execute();
+
         $user = $stmt->fetch();
         if($user) {       
             unset($_SESSION['user']);
@@ -32,7 +35,6 @@ class Auth extends Database{
             unset($_SESSION['infoUser']);
             $_SESSION['infoUser'] = array(
                 'full_name' => $infoUser->full_name,
-                'phone' => $infoUser->phone,
                 'address' => $infoUser->address,
                 'users_id' => $infoUser->users_id
             );
@@ -43,42 +45,48 @@ class Auth extends Database{
         }
     }
 
-    public function register($name, $password, $full_name, $phone, $address){
+    public function register($attr = array()){
         //check name is exist
-        if($this->validating($phone)){
-            $sql = "select * from users where name=? LIMIT 1";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([$name]);   
-            $user = $stmt->fetch();
+        $phone = $attr['phone'];
+        $password = $attr['password'];
+        $full_name = $attr['full_name'];
+        $address = $attr['address'];
 
-            $sql2 = "select * from info_users where phone=? LIMIT 1";
-            $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([$phone]);   
-            $phone = $stmt2->fetch();
-            if($user ){
+        if($this->validating($phone)){
+            $sql = "select * from users where phone=:phone LIMIT 1";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->execute();   
+            $user = $stmt->fetch();
+           
+            if($user){
                 //user name existed
                 $_SESSION['errors'] = 'This account has already existed. Please choose another account name.';
                 redirect(url_pattern('authController', 'login')); die();
-            } else if($phone ){
-                //user name existed
-                $_SESSION['errors'] = 'This phone number already exists. Please enter another phone number.';
-                redirect(url_pattern('authController', 'login')); die();
-            } else {
+            }else {
             //Them moi user
-                $sql = "insert into users(name, password, role) values('$name','$password', 'user')";
-                $this->pdo->exec($sql);
+                $sql = "insert into users(phone, password, role) values(:phone, :password, :role)";
+                $stmt = $this->pdo->prepare($sql);
+
+                $role = 'user';
+                $stmt->bindParam(":phone", $phone);
+                $stmt->bindParam(":password", $password);
+                $stmt->bindParam(":role", $role);
+
+                $stmt->execute();
 
                 //Lay thong tin user vua insert vao database
-                $sql = "select * from users where name=? LIMIT 1";
+                $sql = "select * from users where phone=:phone LIMIT 1";
                 $stmt = $this->pdo->prepare($sql);
-                $stmt->execute([$name]);
+                $stmt->bindParam(":phone", $phone);
+                $stmt->execute();
                 $user = $stmt->fetch();
+
                 //Them thong tin infouser
                 $infoUserModel = new InfoUserModel();
                 $infoUserModel->create(
                     array(
                         'full_name' => $full_name,
-                        'phone' => $phone,
                         'address' => $address,
                         'users_id' => $user['id']
                     )
@@ -88,6 +96,7 @@ class Auth extends Database{
         } 
        
     }
+
     public function validating($phone){
         if(preg_match('/^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$/', $phone)) {
             return true;

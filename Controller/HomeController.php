@@ -128,7 +128,8 @@ class HomeController {
         //Kiem tra nguoi dung da login chua
         $auth = new Auth();
         $user = $auth->user();
-        if($user == NULL || $user['role'] != 'admin'){ //login thanh cong
+        
+        if($user == NULL){ //login thanh cong
             redirect(url_pattern('homeController', 'home'));
         }
 

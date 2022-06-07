@@ -9,14 +9,16 @@ class UserModel extends Database {
     }
 
     public function find($id) {
-        $sql = "select * from users where id=? LIMIT 1";
+        $sql = "select * from users where id=:id LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     
         $user = $stmt->fetch();
+
         return new User(
             $user['id'],
-            $user['info_users_name'],
+            $user['phone'],
             $user['password'],
             $user['role']
         );
@@ -32,7 +34,7 @@ class UserModel extends Database {
         foreach($query as $user){
             $users[] = new User(
                 $user['id'],
-                $user['info_users_name'],
+                $user['phone'],
                 $user['password'],
                 $user['role']
             );
@@ -42,27 +44,39 @@ class UserModel extends Database {
     }
 
     public function delete($id){
-        $sql = "delete from users where id = " . $id;
-        $this->pdo->exec($sql);
+        $sql = "delete from users where id=:id ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 
     public function create($attr = array()) {
-        $info_users_name = $attr['info_users_name'];
+        $phone = $attr['phone'];
         $password = $attr['password'];
         $role = $attr['role'];
-        $sql = "insert into users(info_users_name, password, role) values('$info_users_name','$password', '$role)";
+        $sql = "insert into users(phone, password, role) values(:phone, :password, :role)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":role", $role);
 
-        $this->pdo->exec($sql);
+        $stmt->execute();
     }
 
     public function update($attr = array()) {
-        $info_users_name = $attr['info_users_name'];
+        $phone = $attr['phone'];
         $password = $attr['password'];
         $role = $attr['role'];
-        $sql ="UPDATE users set info_users_name= '$info_users_name', password= '$password', role='$role where id=" . $attr['id'];
-        var_dump($sql);
-        
-        $this->pdo->exec($sql);
+        $id = $attr['id'];
+
+        $sql = "UPDATE users set phone=:phone, password=:password, role=:role where id=:id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":role", $role);
+        $stmt->bindParam(":id", $id);
+
+        $stmt->execute();
     }
     
 }

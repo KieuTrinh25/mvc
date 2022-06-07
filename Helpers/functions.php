@@ -60,3 +60,11 @@ function redirect($url) {
     header("Location: $url");
     die();
 }
+
+function orderStyle($status){
+    if($status == 'pending'){
+        return "order-pending";
+    }
+    
+    return "order-finished";
+}

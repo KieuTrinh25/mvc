@@ -34,7 +34,7 @@ include_once './Model/Database.php';
                 foreach($productList as $product) { ?>
                     <div class="col-xs-2 col-2 col-lg-2 mb-4" >
                         <div class="card"  >
-                            <img src="./Public/images/<?php echo $product->image;?>" width="100%" height="200px">
+                            <img src="<?php echo $product->image;?>" width="100%" height="200px">
                             <div class="card-body">
                                 <a href="single.php?id=<?php echo $product->id; ?>"><?php echo $product->name; ?></a>
                                 <h6 class="card-text"><?php echo $product->price; ?>đ</h6>
