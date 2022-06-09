@@ -48,6 +48,9 @@ class HomeController {
                 case 'cart':
                     $this->cartPage();
                     break;
+                case 'cartDelete':
+                    $this->cartDeletePage();
+                    break;
                 case 'order':
                     $this->orderPage();
                     break;
@@ -124,6 +127,22 @@ class HomeController {
 
         require_once './View/cart.php';
     }
+
+    private function cartDeletePage() {
+        if(!isset($_GET['id'])) die();
+        $productId = $_GET['id'];
+        
+        $cart = $_SESSION['cart'];
+        for($i=0; $i < count($cart); $i++){
+            if($cart[$i]['productId'] == $productId)
+                unset($cart[$i]);
+        }
+
+        unset($_SESSION['cart']);
+        $_SESSION['cart'] = $cart;
+
+        redirect(url_pattern('homeController', 'cart'));
+    }
     private function orderPage() {
         require_once './Model/ProductModel.php';
         $productModel = new ProductModel();
@@ -167,4 +186,5 @@ class HomeController {
         redirect(url_pattern('homeController', 'home'));
         
     }
+    
 }

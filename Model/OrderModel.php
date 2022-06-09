@@ -100,12 +100,11 @@ class OrderModel extends Database {
         $stmt->bindParam(":id", $id);
         $stmt->execute();
     } 
-    
-    public function findOrdersByTime($begin, $end){
-        $sql = "select * from orders where created_at >= :begin and created_at <= :end";
+
+    public function findByOrderStatus($status){
+        $sql = "select * from orders where status=:status";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":begin", $begin);
-        $stmt->bindParam(":end", $end);
+        $stmt->bindParam(":status", $status);
         $stmt->execute();
 
         $query = $stmt->fetchAll();
@@ -127,10 +126,12 @@ class OrderModel extends Database {
 
         return $orders;
     }
-
-    public function findByOrderStatus($status){
-        $sql = "select * from orders where status=:status";
+    
+    public function findOrdersByTime($status = 'pending', $begin, $end){
+        $sql = "select * from orders where created_at >= :begin and created_at <= :end and status=:status";
         $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":begin", $begin);
+        $stmt->bindParam(":end", $end);
         $stmt->bindParam(":status", $status);
         $stmt->execute();
 
