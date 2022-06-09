@@ -82,7 +82,6 @@ class InfoUserModel extends Database {
         return new InfoUser(
             $info_user['id'],
             $info_user['full_name'],
-            $info_user['phone'],
             $info_user['address'],
             $info_user['users_id']
         );

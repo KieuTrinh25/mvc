@@ -13,7 +13,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo admin_url_pattern('categoryController', 'index'); ?>" >
+                <a class="nav-link" href="<?php echo admin_url_pattern('dashboardController', 'index'); ?>" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -84,7 +84,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo admin_url_pattern('chartController', 'index'); ?>">
+                <a class="nav-link" href="<?php echo admin_url_pattern('dashboardController', 'index'); ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>

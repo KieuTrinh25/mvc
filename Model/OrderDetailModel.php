@@ -68,5 +68,22 @@ class OrderDetailModel extends Database {
         $this->pdo->exec($sql);
     }
     
+    public function findByOrderCode($orderCode){
+        $sql = "select * from  orders_details where orders_code = ? ";
+        $query = $this->pdo->prepare($sql);
+        $query->execute([$orderCode]);
+
+        $orders_details = array();
+
+        foreach($query as $orders_detail){
+            $orders_details[] = new OrderDetail(
+            $orders_detail['id'],
+            $orders_detail['orders_code'],
+            $orders_detail['products_id'],
+            $orders_detail['quantity'],     
+            );    
+        }
+        return $orders_details;
+    }
     
 }

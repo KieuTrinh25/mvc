@@ -15,47 +15,53 @@ class HomeController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'home':
-                $this->homePage();
-                break;
-            case 'single':
-                $this->singlePage();
-                break;
-                
-            case 'introduce':
-                $this->introducePage();
-                break;
-            case 'shop':
-                $this->shopPage();
-                break;
-            case 'list':
-                $this->listPage();
-                break;
-            case 'knowledge':
-                $this->knowledgePage();
-                break;
-            case 'contact':
-                $this->contactPage();
-                break;
-            case 'search':
-                $this->searchPage();
-                break;
-            case 'login':
-                $this->loginPage();
-                break;
-            case 'cart':
-                $this->cartPage();
-                break;
-            case 'order':
-                $this->orderPage();
-                break;
-            case 'payProcess':
-                $this->payProcess();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'home':
+                    $this->homePage();
+                    break;
+                case 'single':
+                    $this->singlePage();
+                    break;
+                    
+                case 'introduce':
+                    $this->introducePage();
+                    break;
+                case 'shop':
+                    $this->shopPage();
+                    break;
+                case 'list':
+                    $this->listPage();
+                    break;
+                case 'knowledge':
+                    $this->knowledgePage();
+                    break;
+                case 'contact':
+                    $this->contactPage();
+                    break;
+                case 'search':
+                    $this->searchPage();
+                    break;
+                case 'login':
+                    $this->loginPage();
+                    break;
+                case 'cart':
+                    $this->cartPage();
+                    break;
+                case 'order':
+                    $this->orderPage();
+                    break;
+            }
         }
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch($_POST['page']){
+                case 'payProcess':
+                    $this->payProcess();
+                    break;
+                }
+        }
+        
     }
 
     private function homePage() {
@@ -99,6 +105,8 @@ class HomeController {
         require_once './View/login.php';
     }
     private function cartPage() {
+        $auth = new Auth();
+        $user = $auth->user();
         if(isset($_GET['id'])){
             //order 
             $productModel = new ProductModel();
@@ -132,9 +140,6 @@ class HomeController {
         if($user == NULL){ //login thanh cong
             redirect(url_pattern('homeController', 'home'));
         }
-
-        //Da login
-        $user = (new Auth())->user();
 
         $orderModel = new OrderModel();
         $orders_code = substr(md5(mt_rand()), 0, 7);

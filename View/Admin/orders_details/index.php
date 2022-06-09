@@ -74,9 +74,9 @@
                                     <tbody>
                                         <?php // foreach( $info_userList as $info_user) { ?>
                                             <tr>
-                                                <td><?php echo $info_user['full_name']; ?></td>
-                                                <td><?php echo $info_user['address']; ?></td>
-                                                <td><?php echo $user['phone']; ?></td>
+                                                <td><?php echo $info_user->full_name; ?></td>
+                                                <td><?php echo $info_user->address; ?></td>
+                                                <td><?php echo $user->phone; ?></td>
                                              </tr>
                                         <?php // } ?>
                                     
@@ -93,8 +93,6 @@
                                             <th>Orders_code</th>
                                             <th>Products_id</th>
                                             <th>Quantity</th>
-                                            <th>#</th>
-                                            <th>#</th>
                                         </tr>
                                     </thead>
                                    
@@ -106,9 +104,6 @@
                                                 <td><?php echo $orders_detail->orders_id; ?></td>
                                                 <td><?php echo $orders_detail->products_id; ?></td>
                                                 <td><?php echo $orders_detail->quantity; ?></td>
-                                            
-                                                <td><a href="<?php echo admin_url_pattern('orderdetailController', 'edit', $orderdetail->id); ?>">Edit</a></td>
-                                                <td><a href="<?php echo admin_url_pattern('orderdetailController', 'delete', $orderdetail->id); ?>">Delete</a></td>
                                             </tr>
                                         <?php } ?>
                                     
