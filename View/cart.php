@@ -45,7 +45,7 @@
                         <?php if(count($productList) > 0 ) foreach ($productList as $product) { ?>
                         
                         <tr>
-                            <th scope="row">1</th>
+                            <td class="remove"><a class="btn btn-outline-red " href="<?php echo url_pattern('homeController', 'cartDelete', $product['productId']); ?>" role="button"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                             <td>
                                 <img style="width: 50px; height: 50px;" src="<?php echo $product['image']; ?>" alt="">
                             </td>

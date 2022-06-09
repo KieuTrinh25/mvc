@@ -84,9 +84,9 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo admin_url_pattern('dashboardController', 'index'); ?>">
+                <a class="nav-link" href="<?php echo admin_url_pattern('statisticController', 'lastMonth'); ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <span>Statistic</span></a>
             </li>
 
             <!-- Divider -->

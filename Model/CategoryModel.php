@@ -9,9 +9,10 @@ class CategoryModel extends Database {
     }
 
     public function find($id) {
-        $sql = "select * from categories where id=? LIMIT 1";
+        $sql = "select * from categories where id=:id LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     
         $category = $stmt->fetch();
         return new Category(
@@ -40,25 +41,34 @@ class CategoryModel extends Database {
     }
 
     public function delete($id){
-        $sql = "delete from categories where id = " . $id;
-        $this->pdo->exec($sql);
+        $sql = "delete from categories where id=:id " ;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 
     public function create($attr = array()) {
         $name = $attr['name'];
-        $descripton = $attr['description'];
-        $sql = "insert into categories(name, description) values('$name','$descripton')";
+        $description = $attr['description'];
 
-        $this->pdo->exec($sql);
+        $sql = "insert into categories(name, description) values(:name, :description)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":description", $description);
+         
+        $stmt->execute();
     }
 
     public function update($attr = array()) {
         $name = $attr['name'];
         $description = $attr['description'];
-        $sql ="UPDATE categories set name= '$name', description= '$description' where id=" . $attr['id'];
-        var_dump($sql);
-        
-        $this->pdo->exec($sql);
+        $id = $attr['id'];
+        $sql ="UPDATE categories set name=:name, description=:description where id=:id" ;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":desciption", $description);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
     
 }

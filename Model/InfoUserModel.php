@@ -9,9 +9,10 @@ class InfoUserModel extends Database {
     }
 
     public function find($id) {
-        $sql = "select * from info_users where id=? LIMIT 1";
+        $sql = "select * from info_users where id=:id LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     
         $info_user = $stmt->fetch();
         return new InfoUser(
@@ -44,8 +45,10 @@ class InfoUserModel extends Database {
     }
 
     public function delete($id){
-        $sql = "delete from info_users where id = " . $id;
-        $this->pdo->exec($sql);
+        $sql = "delete from info_users where id=:id " ;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 
     public function create($attr = array()) {
@@ -67,18 +70,24 @@ class InfoUserModel extends Database {
         $full_name = $attr['full_name'];
         $phone = $attr['phone'];
         $address = $attr['address'];
-        $sql ="UPDATE info_users set full_name= '$full_name', phone= '$phone', address='$address' where id=" . $attr['id'];
-        var_dump($sql);
-        
-        $this->pdo->exec($sql);
+        $id = $attr['id'];
+        $sql ="UPDATE info_users set full_name=:$full_name, phone=:$phone, address=:$address where id=:id" ;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":full_name", $full_name);
+        $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":address", $address);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 
     public function findByUserId($users_id){
-        $sql = "select * from info_users where users_id=? LIMIT 1";
+        $sql = "select * from info_users where users_id=:users_id LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$users_id]);
+        $stmt->bindParam(":users_id", $users_id);
+        $stmt->execute();
     
         $info_user = $stmt->fetch();
+        
         return new InfoUser(
             $info_user['id'],
             $info_user['full_name'],

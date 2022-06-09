@@ -22,6 +22,6 @@ class DashboardController {
         $pendingOrders = $this->orderModel->findByOrderStatus('pending');
         $finishedOrders = $this->orderModel->findByOrderStatus('finished');
 
-        require_once './View/Admin/dashboard/index.php';
+        require_once './View/Admin/dashboard.php';
     }
 }
