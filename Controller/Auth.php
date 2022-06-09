@@ -39,7 +39,7 @@ class Auth extends Database{
                 'users_id' => $infoUser->users_id
             );
 
-            if($user['role'] == 'admin') redirect(admin_url_pattern('categoryController', 'index'));     
+            if($user['role'] == 'admin') redirect(admin_url_pattern('dashboardController', 'index'));     
         }else{
             redirect(url_pattern('authController', 'login'));
         }

@@ -47,7 +47,7 @@
                             <input type="hidden" name="controller" value="homeController">
                             <input type="hidden" name="page" value="search">
                             <input name="q" type="search-box" size="20" placeholder="Tìm Kiếm...">
-                            <a class="btn hover-white " href="<?php echo url_pattern('homeController', 'search'); ?>" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            
                             
                         </form>
                         

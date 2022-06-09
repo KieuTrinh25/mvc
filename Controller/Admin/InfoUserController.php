@@ -9,36 +9,37 @@ class InfoUserController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'index':
-                $this->indexPage();
-                break;
-            case 'create':
-                $this->createPage();
-                break;
-            case 'edit':
-                $this->editPage();
-                break;
-            case 'delete':
-                $this->deletePage();
-                break;
-            case 'info_user':
-                $this->storePage();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'index':
+                    $this->indexPage();
+                    break;
+                case 'create':
+                    $this->createPage();
+                    break;
+                case 'edit':
+                    $this->editPage();
+                    break;
+                case 'delete':
+                    $this->deletePage();
+                    break;
+                case 'info_user':
+                    $this->storePage();
+                    break;
+            }
         }
 
-        if(!isset($_POST['page'])) die();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch($_POST['page']){
+                case 'store':
+                    $this->storePage();
+                    break;
+                case 'update':
+                    $this->updatePage();
+                    break;
+            }
+        }
         
-        switch($_POST['page']){
-            case 'store':
-                $this->storePage();
-                break;
-            case 'update':
-                $this->updatePage();
-                break;
-        }
     }
 
     private function indexPage(){

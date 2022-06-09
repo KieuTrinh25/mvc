@@ -73,23 +73,13 @@
                                             <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr> 
-                                        <th>STT</th>
-                                            <th>Code</th>
-                                            <th>Description</th>
-                                            <th>Users_id</th>
-                                            <th>Created_id</th>
-                                            <th>#</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </tfoot>
+                                     
                                     <tbody>
                                   
                                         <?php foreach($orderList as $order) { ?>
                                             <tr class="<?php echo orderStyle($order->status); ?>">
-                                                <td> <a href="<?php admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo increment($i); ?></a></td>
-                                                <td> <a href="<?php echo admin_url_pattern('orderdetailController', 'index' ,$order->code); ?>"><?php echo $order->code; ?></a></td>
+                                                <td> <a href="<?php admin_url_pattern('orderDetailController', 'index' , $order->code); ?>"><?php echo increment($i); ?></a></td>
+                                                <td> <a href="<?php echo admin_url_pattern('orderDetailController', 'index', $order->code); ?>"><?php echo $order->code; ?></a></td>
                                                 <td><?php echo $order->description; ?></td>
                                                 <td><?php echo $order->status; ?></td>
                                                 <td><?php echo $order->users_id; ?></td>
