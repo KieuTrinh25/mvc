@@ -66,7 +66,7 @@
                 </div>
                 <span>Điền thông tin tài khoản để đăng nhập</span>
                 <label for="username1">
-                <input type="text" id="username1" placeholder="Nhập tài khoản"  name="name" />
+                <input type="text" id="username1" placeholder="Nhập tài khoản"  name="phone" />
                 </label>
                 <label for="password1">
                 <input id="password1" type="password" placeholder="Nhập mật khẩu" class="form-control" name="password" value="">

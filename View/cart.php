@@ -87,11 +87,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="formPay" method="post" action="<?php echo url_pattern('homeController', 'payProcess'); ?>">
+                        <form id="formPay" method="POST" action="<?php echo url_pattern('homeController', 'payProcess'); ?>">
+                            <input type="hidden" name="controller" value="homeController">
+                            <input type="hidden" name="page" value="payProcess">
                             <label for="inputPassword5" class="form-label">Họ và tên</label>
                             <input type="text" class="form-control" placeholder="Họ và tên" value="<?php echo $infoUser['full_name']; ?>" name="name">
                             <label for="inputPassword5" class="form-label">Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="Số điện thoại" value="<?php echo $infoUser['phone']; ?>" name="phone">
+                            <input type="text" class="form-control" placeholder="Số điện thoại" value="<?php echo $user['phone']; ?>" name="phone">
                             <label for="inputPassword5" class="form-label">Địa chỉ</label>
                             <input type="text" class="form-control" placeholder="Địa chỉ" value="<?php echo $infoUser['address']; ?>" name="address">
                             <label for="exampleFormControlTextarea1" class="form-label">Ghi chú về đơn hàng</label>

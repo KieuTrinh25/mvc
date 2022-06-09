@@ -1,50 +1,63 @@
 <?php
 require_once './Model/OrderDetailModel.php';
+require_once './Model/OrderModel.php';
+require_once './Model/UserModel.php';
+require_once './Model/InfoUserModel.php';
 
 class OrderDetailController {
     private $orderDetailModel;
+    private $orderModel;
 
     public function __construct() {
         $this->orderDetailModel = new OrderDetailModel();
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'index':
-                $this->indexPage();
-                break;
-            case 'create':
-                $this->createPage();
-                break;
-            case 'edit':
-                $this->editPage();
-                break;
-            case 'delete':
-                $this->deletePage();
-                break;
-            case 'orderdetail':
-                $this->storePage();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'index':
+                    $this->indexPage();
+                    break;
+                case 'create':
+                    $this->createPage();
+                    break;
+                case 'edit':
+                    $this->editPage();
+                    break;
+                case 'delete':
+                    $this->deletePage();
+                    break;
+                case 'orderdetail':
+                    $this->storePage();
+                    break;
+            }
         }
-
-        if(!isset($_POST['page'])) die();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch($_POST['page']){
+                case 'store':
+                    $this->storePage();
+                    break;
+                case 'update':
+                    $this->updatePage();
+                    break;
+            }
+        }
         
-        switch($_POST['page']){
-            case 'store':
-                $this->storePage();
-                break;
-            case 'update':
-                $this->updatePage();
-                break;
-        }
+    
     }
 
     private function indexPage(){
-        $orderdetailList = $this->orderDetailModel->all();
-        $info_user = $_SESSION['infoUser'];
-        $user = $_SESSION['user'];
+        $orderCode = $_GET['id'];
+        $orderdetailList = $this->orderDetailModel->findByOrderCode($orderCode);
+
+        $orderModel = new OrderModel();
+        $order = $orderModel->findByOrderCode($orderCode);
+
+        $userModel = new UserModel();
+        $user = $userModel->find($order->users_id);
+
+        $infoUserModel = new InfoUserModel();
+        $info_user = $infoUserModel->findByUserId($order->users_id);
         
         require_once './View/Admin/orders_details/index.php';
     }

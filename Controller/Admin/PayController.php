@@ -9,36 +9,37 @@ class PayController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'index':
-                $this->indexPage();
-                break;
-            case 'create':
-                $this->createPage();
-                break;
-            case 'edit':
-                $this->editPage();
-                break;
-            case 'delete':
-                $this->deletePage();
-                break;
-            case 'pay':
-                $this->storePage();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'index':
+                    $this->indexPage();
+                    break;
+                case 'create':
+                    $this->createPage();
+                    break;
+                case 'edit':
+                    $this->editPage();
+                    break;
+                case 'delete':
+                    $this->deletePage();
+                    break;
+                case 'pay':
+                    $this->storePage();
+                    break;
+            }
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch($_POST['page']){
+                case 'store':
+                    $this->storePage();
+                    break;
+                case 'update':
+                    $this->updatePage();
+                    break;
+            }
         }
 
-        if(!isset($_POST['page'])) die();
-        
-        switch($_POST['page']){
-            case 'store':
-                $this->storePage();
-                break;
-            case 'update':
-                $this->updatePage();
-                break;
-        }
+       
     }
 
     private function indexPage(){
