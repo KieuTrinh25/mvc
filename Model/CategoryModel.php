@@ -62,13 +62,10 @@ class CategoryModel extends Database {
     public function update($attr = array()) {
         $name = $attr['name'];
         $description = $attr['description'];
-        $id = $attr['id'];
-        $sql ="UPDATE categories set name=:name, description=:description where id=:id" ;
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":name", $name);
-        $stmt->bindParam(":desciption", $description);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
+        $sql ="UPDATE categories set name= '$name', description= '$description' where id=" . $attr['id'];
+        var_dump($sql);
+        
+        $this->pdo->exec($sql);
     }
     
 }

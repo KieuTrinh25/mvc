@@ -30,6 +30,7 @@ class StatisticController {
         $timeBegin = $datetime->format('Y-m-d');
         $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
         $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
+        $boomOrders = $this->orderModel->findOrdersByTime('boom', $timeBegin, $timeEnd);
 
         require_once './View/Admin/statistic/index.php';
     }
@@ -40,7 +41,7 @@ class StatisticController {
         $timeEnd = date("Y/m/d");;
         $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
         $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
-
+        $boomOrders = $this->orderModel->findOrdersByTime('boom', $timeBegin, $timeEnd);
         require_once './View/Admin/statistic/index.php';
     }
 
@@ -49,7 +50,7 @@ class StatisticController {
         $timeEnd = date("Y-n-j", strtotime("last day of previous month"));
         $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
         $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
-
+        $boomOrders = $this->orderModel->findOrdersByTime('boom', $timeBegin, $timeEnd);
         require_once './View/Admin/statistic/index.php';
     }
 

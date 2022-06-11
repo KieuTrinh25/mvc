@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./public/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -69,6 +70,7 @@
                             <select name="status" id="status" class="form-control">
                                 <option value="pending" <?php if($order->status == 'pending') echo 'selected'; ?>>Pending</option>
                                 <option value="finished" <?php if($order->status == 'finished') echo 'selected'; ?>>Finshed</option>
+                                <option value="boom" <?php if($order->status == 'boom') echo 'selected'; ?>>Boom</option>
                             </select>
                         </div>
                        

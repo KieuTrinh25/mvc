@@ -35,8 +35,8 @@ var myBarChart = new Chart(ctx, {
     labels: labels,
     datasets: [{
       label: "Revenue",
-      backgroundColor: ['#4e73df', '#1cc88a'],
-      hoverBackgroundColor: "#2e59d9",
+      backgroundColor: ['rgb(255, 255, 101)', 'rgb(177, 243, 177)' , 'rgb(250, 108, 83)'],
+       
       borderColor: "#4e73df",
       data: data,
     }],
@@ -68,7 +68,7 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 10,
+          max: 30,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks

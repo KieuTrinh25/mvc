@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./public/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -53,25 +54,25 @@
 
                     <!-- Content Row -->
                     <form method="post">
-                        <input type="hidden" name="controller" value="productController">
+                    <input type="hidden" name="controller" value="productController">
                         <input type="hidden" name="page" value="store">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product name:</label>
                             <input name="name" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter name">
-                      
+                          
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product price:</label>
-                            <input price="price" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter price">
+                            <input name="price" type="text" class="form-control" id="cat"  aria-describedby="" placeholder="Enter price">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product quantity:</label>
-                            <input quantity="quantity" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter quantity">
-                            
+                            <input name="quantity" type="text" class="form-control" id="cat"  aria-describedby="" placeholder="Enter quantity">
+                           
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product description:</label>
-                            <input images="images" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter images">
+                            <input name="image" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter image">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>

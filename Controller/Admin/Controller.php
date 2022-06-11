@@ -11,31 +11,26 @@ class Controller {
     }
 
     public function invoke() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if(isset($_GET['controller'])){
-                $controllerClass = ucfirst($_GET['controller']); 
-                require_once "./Controller/Admin/$controllerClass.php";
-                $controller = new $controllerClass;
-                $controller->invoke();
-            }else{
-                //Gia tri mac dinh neu khong co tham so controller va page
-                $_GET['page'] = 'index';
-                $controllerClass = 'CategoryController'; 
-                require_once "./Controller/Admin/$controllerClass.php";
-                $controller = new $controllerClass;
-                $controller->invoke();
-            }
-    
-        }
         
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if(isset($_POST['controller'])){
-                $controllerClass = ucfirst($_POST['controller']);
-                require_once "./Controller/Admin/$controllerClass.php";
-                $controller = new $controllerClass;
-                $controller->invoke();
-            }
+        if(isset($_GET['controller'])){
+            $controllerClass = ucfirst($_GET['controller']); 
+            require_once "./Controller/Admin/$controllerClass.php";
+            $controller = new $controllerClass;
+            $controller->invoke();
+        }else{
+            //Gia tri mac dinh neu khong co tham so controller va page
+            $_GET['page'] = 'index';
+            $controllerClass = 'CategoryController'; 
+            require_once "./Controller/Admin/$controllerClass.php";
+            $controller = new $controllerClass;
+            $controller->invoke();
         }
-        
+
+        if(isset($_POST['controller'])){
+            $controllerClass = ucfirst($_POST['controller']);
+            require_once "./Controller/Admin/$controllerClass.php";
+            $controller = new $controllerClass;
+            $controller->invoke();
+        }
     }
 }

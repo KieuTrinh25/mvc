@@ -65,6 +65,9 @@ function orderStyle($status){
     if($status == 'pending'){
         return "order-pending";
     }
+    if($status == 'finished'){
+        return "order-finished";
+    }
     
-    return "order-finished";
+    return "order-boom";
 }

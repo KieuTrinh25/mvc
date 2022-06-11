@@ -75,7 +75,7 @@
                
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-outline-success " style="margin-top:20px"><i class="fa fa-arrow-left" aria-hidden="true" ></i> <a href="<?php echo url_pattern('homeController', 'shop'); ?>" style="text-decoration: none; color:black"> TIẾP TỤC XEM SẢN PHẨM</a></button>
+                <button type="button" class="btn btn-outline-success " style="margin-top:20px"><i class="fa fa-arrow-left" aria-hidden="true" ></i> <a href="<?php echo url_pattern('homeController', 'home'); ?>" style="text-decoration: none; color:black"> TIẾP TỤC XEM SẢN PHẨM</a></button>
                 <button type="button"class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top:30px"><i class="fa fa-credit-card" aria-hidden="true"></i> TIẾN HÀNH THANH TOÁN</button>
             </div>
             <!-- Modal -->

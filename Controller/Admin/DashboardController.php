@@ -21,6 +21,7 @@ class DashboardController {
     private function indexPage(){
         $pendingOrders = $this->orderModel->findByOrderStatus('pending');
         $finishedOrders = $this->orderModel->findByOrderStatus('finished');
+        $boomOrders = $this->orderModel->findByOrderStatus('boom');
 
         require_once './View/Admin/dashboard.php';
     }
