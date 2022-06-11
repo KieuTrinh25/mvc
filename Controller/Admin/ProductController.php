@@ -9,7 +9,7 @@ class ProductController {
     }
 
     public function invoke() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             switch($_GET['page']){
                 case 'index':
                     $this->indexPage();
@@ -52,7 +52,7 @@ class ProductController {
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
                 'quantity' => $_POST['quantity'],
-                'images' => $_POST['images']
+                'image' => $_POST['image']
             )
         );
 
@@ -60,7 +60,7 @@ class ProductController {
     }
 
     private function editPage(){
-        $category = $this->productModel->find($_GET['id']);
+        $product = $this->productModel->find($_GET['id']);
         require_once './View/Admin/products/edit.php';
     }
 
@@ -71,7 +71,7 @@ class ProductController {
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
                 'quantity' => $_POST['quantity'],
-                'images' => $_POST['images']
+                'image' => $_POST['image']
             )
         );
 

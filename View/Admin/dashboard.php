@@ -20,9 +20,10 @@
 
     <!-- Custom styles for this template-->
     <link href="./Public/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/sb-admin-2.css" rel="stylesheet">
     <script>
-        var labels = ['pending', 'finished'];
-        var data = [<?php echo count($pendingOrders); ?>, <?php echo count($finishedOrders); ?>];
+        var labels = ['pending', 'finished', 'boom'];
+        var data = [<?php echo count($pendingOrders ); ?>, <?php echo count($finishedOrders); ?>, <?php echo count($boomOrders); ?>];
     </script>
 
 </head>
@@ -110,8 +111,6 @@
                                             <th>Status</th>
                                             <th>Users_id</th>
                                             <th>Created_id</th>
-                                            <th>#</th>
-                                            <th>#</th>
                                         </tr>
                                     </thead>
                                      
@@ -125,9 +124,6 @@
                                                 <td><?php echo $order->status; ?></td>
                                                 <td><?php echo $order->users_id; ?></td>
                                                 <td><?php echo $order->created_at; ?></td>
-                                            
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'edit', $order->id); ?>">Edit</a></td>
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'delete', $order->id); ?>">Delete</a></td>
                                             </tr>
                                         <?php } ?>
                                      
@@ -153,8 +149,6 @@
                                             <th>Status</th>
                                             <th>Users_id</th>
                                             <th>Created_id</th>
-                                            <th>#</th>
-                                            <th>#</th>
                                         </tr>
                                     </thead>
                                      
@@ -168,9 +162,43 @@
                                                 <td><?php echo $order->status; ?></td>
                                                 <td><?php echo $order->users_id; ?></td>
                                                 <td><?php echo $order->created_at; ?></td>
-                                            
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'edit', $order->id); ?>">Edit</a></td>
-                                                <td><a href="<?php echo admin_url_pattern('orderController', 'delete', $order->id); ?>">Delete</a></td>
+                                            </tr>
+                                        <?php } ?>
+                                     
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Boom Orders</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Code</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Users_id</th>
+                                            <th>Created_id</th>
+                                        </tr>
+                                    </thead>
+                                     
+                                    <tbody>
+                                  
+                                        <?php foreach($boomOrders as $order) { ?>
+                                            <tr class="<?php echo orderStyle($order->status); ?>">
+                                                <td> <a href="<?php admin_url_pattern('orderDetailController', 'index' , $order->code); ?>"><?php echo increment($i); ?></a></td>
+                                                <td> <a href="<?php echo admin_url_pattern('orderDetailController', 'index', $order->code); ?>"><?php echo $order->code; ?></a></td>
+                                                <td><?php echo $order->description; ?></td>
+                                                <td><?php echo $order->status; ?></td>
+                                                <td><?php echo $order->users_id; ?></td>
+                                                <td><?php echo $order->created_at; ?></td>
                                             </tr>
                                         <?php } ?>
                                      

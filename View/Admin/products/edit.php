@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./Public/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./Public/admin/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -58,21 +59,21 @@
                         <input type="hidden" name="id" value="<?php echo $product->id; ?>">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product name:</label>
-                            <input name="name" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter name">
+                            <input name="name" type="text" class="form-control" id="cat" value="<?php echo $product->name; ?>" aria-describedby="" placeholder="Enter name">
                           
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product price:</label>
-                            <input price="price" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter price">
+                            <input price="price" type="text" class="form-control" id="cat" value="<?php echo $product->price; ?>" aria-describedby="" placeholder="Enter price">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product quantity:</label>
-                            <input quantity="quantity" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter quantity">
+                            <input quantity="quantity" type="text" class="form-control" id="cat"  value="<?php echo $product->quantity; ?>" aria-describedby="" placeholder="Enter quantity">
                            
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product description:</label>
-                            <input images="images" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter images">
+                            <input image="images" type="text" class="form-control" id="cat" value="<?php echo $product->image; ?>" aria-describedby="" placeholder="Enter images">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>

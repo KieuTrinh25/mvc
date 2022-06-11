@@ -29,30 +29,22 @@
                             </div>                              
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="<?php echo url_pattern('homeController', 'list'); ?>" style="color: black;" >Danh bạ nhà nông</a>
-                                                               
+                            <a class="nav-link " href="<?php echo url_pattern('homeController', 'list'); ?>" style="color: black;" >Danh bạ nhà nông</a>                                    
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="<?php echo url_pattern('homeController', 'knowledge'); ?>"  style="color: black;">Kiến thức</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="<?php echo url_pattern('homeController', 'contact'); ?>"  style="color: black;">Liên hệ</a>
-                        </li>
-                                
-                                
-                               
+                        </li>         
                     </ul> 
                     <div class="search " style="margin-right:40px;">
                         <form action="<?php echo url_pattern('homeController', 'search') ?>" method="get">
                             <input type="hidden" name="controller" value="homeController">
                             <input type="hidden" name="page" value="search">
                             <input name="q" type="search-box" size="20" placeholder="Tìm Kiếm...">
-                            <a class="btn hover-white " href="<?php echo url_pattern('homeController', 'search'); ?>" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
-                            
-                        </form>
-                        
+                        </form>                     
                     </div>
-
                     <div class="btn-user">
 
                         <div class="btn-cart1" onclick="show()">
